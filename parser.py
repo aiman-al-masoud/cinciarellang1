@@ -10,7 +10,13 @@ class Parser:
     
     # S -> ES|SS|CS
     def parse_stmt(self):
-        pass
+        # pass
+
+        # if self.ts.peek == 'if':
+
+
+        # if self.ts.peek == '{':
+            # self.parse_comp_stmt()
 
     def parse_sel_stmt(self):
         pass

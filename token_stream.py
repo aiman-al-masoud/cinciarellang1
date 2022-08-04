@@ -43,8 +43,8 @@ class TokenStream:
         self.croak("Unexpected char")
 
     @property
-    def peek(self)->'{}':
-        return self.current
+    def peek(self)->'Token':
+        return Token(self.current['type'], self.current['val'])
 
     def croak(self, msg):
         self.cs.croak(msg)
@@ -97,6 +97,17 @@ class TokenStream:
 
     def skip_whitespace(self):
         self.read_while(lambda c : c in ' \n\t')
+    
+
+
+class Token(dict):
+    
+    def __init__(self, _type:str, val:str):
+        self['type'] = self.type = _type
+        self['val'] = self.val = val
+        
+
+
     
     
 
