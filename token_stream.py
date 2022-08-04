@@ -130,7 +130,10 @@ source = """
 
 ts = TokenStream(CharStream(source))
 
+
+# print(ts.peek) # initially null
 ts.next()
+
 while not ts.eof():
     print(ts.peek)
     ts.next()
