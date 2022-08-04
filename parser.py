@@ -205,6 +205,14 @@ class Parser:
             a = self.ts.peek
             self.ts.next() # eat 'id'
             return a
+        elif self.ts.peek.val == '(':
+            self.ts.next() # eat '('
+            a = self.parse_exp()
+            self.ts.next() # eat ')'
+            return a
+        else: # it's a literal
+            
+
         
 
     def parse_const(self): # AKA: literal
