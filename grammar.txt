@@ -1,0 +1,71 @@
+<statement> ::=  <expression-statement>
+             	 | <selection-statement>
+             	 | <compound-statement>
+
+<function-definition> ::=  fun <compound-statement>
+
+<compound-statement> ::= {  <statement>* }
+
+
+<selection-statement> ::= if <expression>  <compound-statement>    
+                        | if <expression>  <compound-statement> else <compound-statement> 
+
+
+<expression-statement> ::= <expression>;   //an expression ending in semicolon
+
+
+<expression> ::= <assignment-expression>
+
+
+<assignment-expression> ::= <conditional-expression>
+                            | <indetifier> = <conditional-expression> 
+                            | <indetifier> = <function-definition>
+                            | <indetifier> = <assignment-expression>
+                            
+
+<conditional-expression> ::= <logical-or-expression>
+                             | <logical-or-expression> ? <expression> : <conditional-expression>
+
+<logical-or-expression> ::= <logical-and-expression>
+                             | <logical-and-expression> || <logical-or-expression> 
+
+<logical-and-expression> ::= <equality-expression>
+                             | <equality-expression> && <logical-and-expression> 
+                    
+
+<equality-expression> ::= <additive-expression>
+                          | <additive-expression> == <equality-expression> 
+                          | <additive-expression> != <equality-expression> 
+                          | <additive-expression> <  <equality-expression>  
+                          | <additive-expression> >  <equality-expression>  
+                          | <additive-expression> <= <equality-expression>  
+                          | <additive-expression> >= <equality-expression>  
+
+
+                          
+<additive-expression> ::= <multiplicative-expression>
+                          |  <multiplicative-expression> + <additive-expression>
+                          |  <multiplicative-expression> - <additive-expression> 
+
+
+
+<multiplicative-expression> ::= <unary-expression> 
+                                | <unary-expression> * <multiplicative-expression> 
+                                | <unary-expression> / <multiplicative-expression>  
+
+
+<unary-expression> ::= <primary-expression>
+                       | <unary-expression>  ( <assignment-expression>* )  //function call
+                       | <unary-operator> <unary-expression> // like negation 
+
+
+<unary-operator>  ::= -
+		     |!
+
+
+<primary-expression> ::= <identifier>
+                         | <constant>
+                         | ( <expression> )
+                                      
+<constant> ::= <number>
+               | <string>
