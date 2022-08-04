@@ -64,7 +64,14 @@ class Parser:
 
 
     def parse_func(self):# TODO: add args later
-        pass
+        
+        self.ts.next() # eat 'fun'
+        self.ts.next() # eat '('
+        self.ts.next() # eat ')'
+        a = self.parse_comp_stmt()
+        return a
+
+
 
     def parse_exp(self):
         pass
