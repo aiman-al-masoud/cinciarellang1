@@ -60,6 +60,7 @@ class Parser:
     def parse_exp_stmt(self):
         a  = self.parse_exp()
         self.ts.next() # eat ';'
+        return a
 
 
     def parse_func(self):
