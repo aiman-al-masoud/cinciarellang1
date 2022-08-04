@@ -6,7 +6,7 @@ class TokenStream:
         self.cs = cs
         self.current = None 
 
-    def next(self)->'dict':
+    def next(self):
 
         self.skip_whitespace()
 
@@ -49,6 +49,7 @@ class TokenStream:
 
     def eof(self):
         return self.cs.eof() # TODO: maybe problematic
+
 
     @staticmethod
     def is_id_start(c:'str'):
