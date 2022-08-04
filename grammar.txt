@@ -60,8 +60,8 @@
 
 // replaced <unary-expression> in  //function call
 <unary-expression> ::= <primary-expression>
-                       | <primary-expression>  ( <assignment-expression>* )  //function call
                        | <unary-operator> <unary-expression> // like negation 
+                       | <primary-expression>  ( <assignment-expression>* )  //function call
 
 
 <unary-operator>  ::= -
