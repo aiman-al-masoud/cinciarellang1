@@ -211,9 +211,9 @@ class Parser:
             self.ts.next() # eat ')'
             return a
         else: # it's a literal
+            return self.parse_const()
 
-
-        
+            
 
     def parse_const(self): # AKA: literal
         pass
