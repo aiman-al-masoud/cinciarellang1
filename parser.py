@@ -132,10 +132,32 @@ class Parser:
 
 
     def parse_eq_exp(self):
-        pass
+
+        a = self.parse_add_exp()
+
+        while True:
+            if self.ts.peek.val in "== != > < >= <=":
+                self.ts.next() # eat 'peek.val'
+                b = self.parse_add_exp()
+                a = {'type': self.ts.peek.val, 'left': a, 'right': b}
+            else:
+                return a
 
     def parse_add_exp(self):
-        pass
+
+        a = self.parse_mul_exp()
+
+        while True:
+            if self.ts.peek.val == "+":
+                self.ts.next() # eat '+'
+                b = self.parse_mul_exp()
+                a = {'type' : 'add', 'left' : a, 'right' : b}
+            elif self.ts.peek.val == "-":
+                self.ts.next() # eat '-'
+                b = self.parse_mul_exp()
+                a = {'type' : 'sub', 'left' : a, 'right' : b}
+            else:
+                return a
 
     def parse_mul_exp(self):
         pass
