@@ -265,6 +265,7 @@ from char_stream import CharStream
 s = "x = fun(){a = 1;y = 2;};  x = 1;"
 s = "x = f(); x = x + 1"
 s = "x = y = a = 1"
+s = "f()+1" # TODO: problem
 
 p = Parser(TokenStream(CharStream(s)))
 
