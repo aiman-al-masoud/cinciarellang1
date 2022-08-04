@@ -72,9 +72,8 @@ class Parser:
         return a
 
 
-
     def parse_exp(self):
-        pass
+        return self.parse_asgn_exp()
 
     def parse_asgn_exp(self):
         pass
