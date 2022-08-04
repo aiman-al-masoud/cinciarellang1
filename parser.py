@@ -102,7 +102,17 @@ class Parser:
         return self.parse_or_exp()
 
     def parse_or_exp(self):
-        pass
+        
+        a = self.parse_and_exp()
+
+        while True:
+            if self.ts.peek.val == '||':
+                self.ts.next() # eat '||'
+                b = self.parse_and_exp()
+                a = {'type' : 'or', 'left' : a, 'right' : b}
+            else:
+                return a
+
 
     def parse_and_exp(self):
         pass
