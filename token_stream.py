@@ -111,7 +111,7 @@ source = """
             y = 1;
          }
 
-         f(1)*8
+         f(1)*8;
          """
 
 ts = TokenStream(CharStream(source))
