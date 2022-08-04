@@ -15,7 +15,7 @@ class Parser:
     def parse_sel_stmt(self):
         pass
 
-    def parse_comp_stmt(self):
+    def parse_comp_stmt(self): # compound statement
         pass
 
     def parse_exp_stmt(self):
