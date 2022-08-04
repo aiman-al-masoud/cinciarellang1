@@ -16,6 +16,7 @@ class TokenStream:
     def __init__(self, cs: CharStream):
         self.cs = cs
         self.current:'{}' = None 
+        self.next() # get initial token 
 
     def next(self):
 
@@ -131,8 +132,8 @@ source = """
 ts = TokenStream(CharStream(source))
 
 
-# print(ts.peek) # initially null
-ts.next()
+print(ts.peek) # initial token
+# ts.next()
 
 while not ts.eof():
     print(ts.peek)
