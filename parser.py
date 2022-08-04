@@ -200,7 +200,12 @@ class Parser:
         return [a]
 
     def parse_prim_exp(self):
-        pass
+
+        if self.ts.peek.type == 'id': # var or func 
+            a = self.ts.peek
+            self.ts.next() # eat 'id'
+            return a
+        
 
     def parse_const(self): # AKA: literal
         pass
