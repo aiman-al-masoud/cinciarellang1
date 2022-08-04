@@ -4,7 +4,7 @@ class TokenStream:
 
     def __init__(self, cs: CharStream):
         self.cs = cs
-        self.current = None 
+        self.current:'{}' = None 
 
     def next(self):
 
@@ -42,9 +42,8 @@ class TokenStream:
         
         self.croak("Unexpected char")
 
-
-
-    def peek(self):
+    @property
+    def peek(self)->'{}':
         return self.current
 
     def croak(self, msg):
@@ -102,7 +101,6 @@ class TokenStream:
     
 
 
-
 source = "#ciao\n#ciao\na+2+34*(4*1)"
 source = "1+1"
 
@@ -118,7 +116,8 @@ ts = TokenStream(CharStream(source))
 
 ts.next()
 while not ts.eof():
-    print(ts.peek())
+    print(ts.peek)
     ts.next()
+
 
 
