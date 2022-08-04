@@ -193,11 +193,11 @@ class Parser:
             return {'type': op, 'arg' : b}
 
 
-    def parse_fun_call_args(self):
+    def parse_fun_call_args(self): # TODO: multiple args
         self.ts.next() # eat '('
-        pass
+        a = self.parse_asgn_exp()
         self.ts.next() # eat ')'
-        return []
+        return [a]
 
     def parse_prim_exp(self):
         pass
