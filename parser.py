@@ -181,6 +181,9 @@ class Parser:
     def parse_un_op(self):
         pass# TODO: really?
 
+    def parse_fun_call(self):
+        pass
+
     def parse_prim_exp(self):
         pass
 
