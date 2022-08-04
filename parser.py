@@ -14,16 +14,13 @@ class Parser:
     def parse_stmt(self):
 
         if self.ts.peek.val == 'if':
-
-            self.ts.next() # eat 'if'
+            
             a = self.parse_sel_stmt()
 
         elif self.ts.peek.val == '{':
-
-            self.ts.next() # eat '{'
+            
             a = self.parse_comp_stmt()
-            self.ts.next() # eat '}'
-        
+
         else:
             self.parse_exp_stmt()
 
@@ -31,7 +28,9 @@ class Parser:
 
 
     def parse_sel_stmt(self):
-        
+
+        self.ts.next() # eat 'if'
+ 
         a = self.parse_exp()
         b = self.parse_comp_stmt()
 
@@ -40,12 +39,15 @@ class Parser:
             c = self.parse_comp_stmt()
         
         return {'type' : 'if', 'cond' : a, 'then' : b, 'else': c}
-        
+
 
 
 
     def parse_comp_stmt(self): # compound statement
+        self.ts.next() # eat '{'
         pass
+        self.ts.next() # eat '}'
+
 
     def parse_exp_stmt(self):
         pass
