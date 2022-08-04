@@ -213,17 +213,20 @@ class Parser:
         else: # it's a literal
             return self.parse_const()
 
-            
+
 
     def parse_const(self): # AKA: literal
-        pass
 
+        if self.ts.peek.type == 'num':
+            f = float(self.ts.peek.val)
+            self.ts.next()
+            return f
+        elif self.ts.peek.type == 'bool':
+            b = self.ts.peek.val == 'true'
+            self.ts.next()
+            return b
 
-
-
-
-
-
+        
 
 
 
