@@ -235,7 +235,7 @@ class Parser:
 
 
 from char_stream import CharStream
-s = "x = fun(){a = 1;y = 2;};/"
+s = "x = fun(){a = 1;y = 2;};"
 
 
 p = Parser(TokenStream(CharStream(s)))
