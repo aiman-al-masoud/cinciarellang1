@@ -87,7 +87,7 @@ class TokenStream:
 
     @staticmethod
     def is_kw(s:'str'):
-        return s in "true false if else fun"
+        return s in ['true', 'false', 'if', 'else', 'fun']
         
 
     def read_while(self, predicate)->'str':
