@@ -137,9 +137,10 @@ class Parser:
 
         while True:
             if self.ts.peek.val in "== != > < >= <=":
-                self.ts.next() # eat 'peek.val'
+                op = self.ts.peek.val
+                self.ts.next() # eat op
                 b = self.parse_add_exp()
-                a = {'type': self.ts.peek.val, 'left': a, 'right': b}
+                a = {'type': op, 'left': a, 'right': b}
             else:
                 return a
 
