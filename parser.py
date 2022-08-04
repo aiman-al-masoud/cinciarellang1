@@ -34,6 +34,7 @@ class Parser:
  
         a = self.parse_exp() # condition
         b = self.parse_comp_stmt() # then
+        c = None # else
 
         if self.ts.peek.val == 'else':
             self.ts.next() # eat 'else'
