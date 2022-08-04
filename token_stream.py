@@ -1,5 +1,16 @@
 from char_stream import CharStream
 
+
+class Token():
+    
+    def __init__(self, _type:str, val:str):
+        self.type = _type
+        self.val = val
+    
+    def __repr__(self):
+        return f"{{ 'type' : '{self.type}', 'val' : '{self.val}' }}"
+
+
 class TokenStream:
 
     def __init__(self, cs: CharStream):
@@ -43,7 +54,7 @@ class TokenStream:
         self.croak("Unexpected char")
 
     @property
-    def peek(self)->'Token':
+    def peek(self)->Token:
         return Token(self.current['type'], self.current['val'])
 
     def croak(self, msg):
@@ -100,12 +111,6 @@ class TokenStream:
     
 
 
-class Token(dict):
-    
-    def __init__(self, _type:str, val:str):
-        self['type'] = self.type = _type
-        self['val'] = self.val = val
-        
 
 
     

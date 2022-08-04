@@ -6,20 +6,37 @@ class Parser:
         self.ts = ts
 
     def parse(self):
-        return self.parse_statement()
-    
+        # return self.parse_statement()
+        pass
+
+
     # S -> ES|SS|CS
     def parse_stmt(self):
-        # pass
 
-        # if self.ts.peek == 'if':
+        if self.ts.peek.val == 'if':
+
+            self.ts.next() # eat 'if'
+            a = self.parse_sel_stmt()
+
+        elif self.ts.peek.val == '{':
+
+            self.ts.next() # eat '{'
+            a = self.parse_comp_stmt()
+            self.ts.next() # eat '}'
+        
+        else:
+            self.parse_exp_stmt()
 
 
-        # if self.ts.peek == '{':
-            # self.parse_comp_stmt()
+
 
     def parse_sel_stmt(self):
-        pass
+        
+        a = self.parse_exp()
+        
+
+
+
 
     def parse_comp_stmt(self): # compound statement
         pass
