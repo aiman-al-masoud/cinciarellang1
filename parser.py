@@ -179,12 +179,13 @@ class Parser:
         
         if self.ts.peek.val not in '-!':
             a = self.parse_prim_exp()
-            
+
             if self.ts.peek.val == '(':
-                b = self.parse_fun_call()
+                b = self.parse_fun_call_args()
+                return {'type' : 'call', 'name' : a, 'args' : b}
 
 
-    def parse_fun_call(self):
+    def parse_fun_call_args(self):
         self.ts.next() # eat '('
         pass
         self.ts.next() # eat ')'
