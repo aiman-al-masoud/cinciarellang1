@@ -71,7 +71,7 @@ class Parser:
         self.ts.next() # eat '('
         self.ts.next() # eat ')'
         a = self.parse_comp_stmt()
-        return a
+        return {'type': 'fun', 'body': a}
 
 
     def parse_exp(self):
@@ -235,7 +235,7 @@ class Parser:
 
 
 from char_stream import CharStream
-s = "x = y = 2;"
+s = "x = fun(){x = 1;y = 2;};/"
 
 
 p = Parser(TokenStream(CharStream(s)))
