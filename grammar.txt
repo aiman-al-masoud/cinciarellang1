@@ -57,8 +57,10 @@
                                 | <unary-expression> / <multiplicative-expression>  
 
 
+
+// replaced <unary-expression> in  //function call
 <unary-expression> ::= <primary-expression>
-                       | <unary-expression>  ( <assignment-expression>* )  //function call
+                       | <primary-expression>  ( <assignment-expression>* )  //function call
                        | <unary-operator> <unary-expression> // like negation 
 
 
