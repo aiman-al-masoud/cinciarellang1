@@ -44,6 +44,7 @@ class Parser:
 
 
     def parse_comp_stmt(self): # compound statement
+        
         self.ts.next() # eat '{'
 
         res = []
