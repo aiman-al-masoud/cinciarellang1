@@ -23,6 +23,7 @@
                             | <indetifier> = <assignment-expression>
                             
 
+// maybe leave out the ternary operator initially
 <conditional-expression> ::= <logical-or-expression>
                              | <logical-or-expression> ? <expression> : <conditional-expression>
 
@@ -69,3 +70,4 @@
                                       
 <constant> ::= <number>
                | <string>
+               | <bool>

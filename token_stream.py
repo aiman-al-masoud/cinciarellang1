@@ -60,15 +60,20 @@ class TokenStream:
 
     @staticmethod
     def is_op(c:'str'):
-        return c in '+-*/'
+        return c in '+-*/=!<>|&'
     
     @staticmethod
     def is_punc(c:'str'):
-        return c in '()'
+        return c in '(){},;'
     
     @staticmethod
     def is_comment_start(c:'str')->'bool':
         return c=="#"
+
+    @staticmethod
+    def is_kw(s:'str'):
+        return s in "true false if fun"
+        
 
     def read_while(self, predicate)->'str':
 
@@ -90,10 +95,7 @@ class TokenStream:
     def skip_whitespace(self):
         self.read_while(lambda c : c in ' \n\t')
     
-    # @staticmethod
-    # def is_kw(s:'str'):
-    #     # return s in ""
-    #     pass
+    
 
 
 
