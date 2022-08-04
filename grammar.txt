@@ -19,8 +19,7 @@
 <expression> ::= <assignment-expression>
 
 
-<assignment-expression> ::= <conditional-expression>
-                            | <indetifier> = <conditional-expression> 
+<assignment-expression> ::=   <indetifier> = <conditional-expression> 
                             | <indetifier> = <function-definition>
                             | <indetifier> = <assignment-expression>
                             
