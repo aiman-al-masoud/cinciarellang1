@@ -179,6 +179,7 @@ class Parser:
         
         if self.ts.peek.val not in '-!':
             a = self.parse_prim_exp()
+            
             if self.ts.peek.val == '(':
                 b = self.parse_fun_call()
 
