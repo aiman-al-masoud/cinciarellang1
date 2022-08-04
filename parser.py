@@ -194,6 +194,7 @@ class Parser:
         self.ts.next() # eat '('
         pass
         self.ts.next() # eat ')'
+        return []
 
     def parse_prim_exp(self):
         pass
