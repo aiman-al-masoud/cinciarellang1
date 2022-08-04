@@ -61,7 +61,7 @@ class Parser:
 
     def parse_exp_stmt(self):
         a  = self.parse_exp()
-        self.ts.next() # eat ';'
+        self.ts.next() # eat ';' # TODO: check semicolon presence
         return a
 
 
