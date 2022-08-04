@@ -36,8 +36,8 @@ class TokenStream:
             return 
 
         if TokenStream.is_punc(c):
-            s = self.read_while(lambda c : TokenStream.is_punc(c))
-            self.current = {'type':'punc', 'val': s}
+            self.current = {'type':'punc', 'val': c}
+            self.cs.next()
             return 
         
         self.croak("Unexpected char")
@@ -107,7 +107,11 @@ source = "#ciao\n#ciao\na+2+34*(4*1)"
 source = "1+1"
 
 source = """
-         fun 
+         f = fun(){
+            y = 1;
+         }
+
+         f(1)*8
          """
 
 ts = TokenStream(CharStream(source))

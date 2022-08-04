@@ -2,7 +2,9 @@
              	 | <selection-statement>
              	 | <compound-statement>
 
-<function-definition> ::=  fun <compound-statement>
+
+// args?
+<function-definition> ::=  fun()<compound-statement>
 
 <compound-statement> ::= {  <statement>* }
 
