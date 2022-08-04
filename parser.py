@@ -22,8 +22,9 @@ class Parser:
             a = self.parse_comp_stmt()
 
         else:
-            self.parse_exp_stmt()
+            a = self.parse_exp_stmt()
 
+        return a
 
 
 
@@ -57,7 +58,9 @@ class Parser:
 
 
     def parse_exp_stmt(self):
-        pass
+        a  = self.parse_exp()
+        self.ts.next() # eat ';'
+
 
     def parse_func(self):
         pass
