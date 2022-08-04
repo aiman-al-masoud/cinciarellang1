@@ -8,10 +8,22 @@ class Parser:
     def parse(self):
         return self.parse_statement()
     
-    def parse_statement(self):
+    # S -> ES|SS|CS
+    def parse_stmt(self):
         pass
 
-    
+    def parse_sel_stmt(self):
+        pass
+
+    def parse_comp_stmt(self):
+        pass
+
+    def parse_exp_stmt(self):
+        pass
+
+
+
+
 
 
 
