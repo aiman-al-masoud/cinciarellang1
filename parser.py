@@ -88,8 +88,16 @@ class Parser:
     def parse_asgn_exp(self):
         
         if self.ts.peek.type == 'id':
-            a = self.ts.peek
-            self.ts.next() # eat 'id'
+            # a = self.ts.peek
+            # print(a, "hello!")
+            # self.ts.next() # eat 'id'
+            
+            # try:
+            a = self.parse_un_exp()
+            # except Exception as e :
+                # print(e)
+
+            # print(a, "hello!")
 
         while True:
 
@@ -185,10 +193,15 @@ class Parser:
 
     def parse_un_exp(self):
         
+        # print(self.ts.peek.val)
         if self.ts.peek.val not in '-!':
+
             a = self.parse_prim_exp()
+            # print(a, "hereeh")
+            # print(self.ts.peek.val, "neeext")
 
             if self.ts.peek.val == '(':
+                # print("hello")
                 b = self.parse_fun_call_args()
                 return {'type' : 'call', 'name' : a, 'args' : b}
 
@@ -202,10 +215,17 @@ class Parser:
 
 
     def parse_fun_call_args(self): # TODO: multiple args
+        
+        res = []
         self.ts.next() # eat '('
-        a = self.parse_asgn_exp()
+        
+        if self.ts.peek.val != ')':
+            a = self.parse_asgn_exp()
+            res.append(a)
+        
         self.ts.next() # eat ')'
-        return [a]
+
+        return res
 
     def parse_prim_exp(self):
 
@@ -243,7 +263,7 @@ class Parser:
 
 from char_stream import CharStream
 s = "x = fun(){a = 1;y = 2;};  x = 1;"
-
+s = "x = f(); x = x + 1"
 
 p = Parser(TokenStream(CharStream(s)))
 
