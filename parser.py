@@ -78,6 +78,7 @@ class Parser:
 
     def parse_asgn_exp(self):
         
+        self.ts.peek
         
 
     def parse_cond_exp(self):
