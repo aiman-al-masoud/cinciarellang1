@@ -12,6 +12,9 @@ class TokenStream:
 
         c = self.cs.peek()
 
+        if c is None:
+            return 
+
         if TokenStream.is_comment_start(c):
             self.skip_comment()
             self.next()
