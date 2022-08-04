@@ -184,6 +184,11 @@ class Parser:
                 b = self.parse_fun_call_args()
                 return {'type' : 'call', 'name' : a, 'args' : b}
 
+            return a
+
+        else:
+            pass
+
 
     def parse_fun_call_args(self):
         self.ts.next() # eat '('
