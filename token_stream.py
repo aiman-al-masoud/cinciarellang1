@@ -129,15 +129,15 @@ source = """
          f(1)*8;
          """
 
-ts = TokenStream(CharStream(source))
+# ts = TokenStream(CharStream(source))
 
 
-print(ts.peek) # initial token
-# ts.next()
+# print(ts.peek) # initial token
+# # ts.next()
 
-while not ts.eof():
-    print(ts.peek)
-    ts.next()
+# while not ts.eof():
+#     print(ts.peek)
+#     ts.next()
 
 
 

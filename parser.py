@@ -234,6 +234,17 @@ class Parser:
 
 
 
+from char_stream import CharStream
+s = "x = y = 2;"
+
+
+p = Parser(TokenStream(CharStream(s)))
+
+
+x = p.parse_stmt()
+
+print(x)
+
 
 
 
