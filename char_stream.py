@@ -1,7 +1,7 @@
 class CharStream:
     
     def __init__(self, string):
-        self.string = string+" "# TODO: properly fix this stupid hack, I think it's fixed now
+        self.string = string+" "# TODO: properly fix this stupid hack
         self.pos, self.row, self.col = 0, 0, 0
 
     def next(self):
