@@ -187,7 +187,9 @@ class Parser:
             return a
 
         else:
-            pass
+            op = self.ts.peek.val
+            self.ts.next() # eat op
+            
 
 
     def parse_fun_call_args(self):
