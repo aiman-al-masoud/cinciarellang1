@@ -76,10 +76,34 @@ class Parser:
     def parse_exp(self):
         return self.parse_asgn_exp()
 
+
     def parse_asgn_exp(self):
         
-        self.ts.peek
+        if self.ts.peek.type == 'id':
+            a = self.ts.peek
+            self.ts.next() # eat 'id'
+
+        while True:
+
+            if self.ts.peek.val == '=':
+                self.ts.next() # eat '='
+                
+                if self.ts.peek.val == 'fun':
+                    b = self.parse_func()
+                else:
+                    b = self.parse_cond_exp()
+
+                a = {'type' : 'asgn', 'left' : a, 'right' : b}
+            else:
+                return a
+
+
+
         
+
+        
+
+
 
     def parse_cond_exp(self):
         pass
