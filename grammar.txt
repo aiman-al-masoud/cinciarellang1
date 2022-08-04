@@ -19,6 +19,7 @@
 <expression> ::= <assignment-expression>
 
 
+// or also <conditional-expression> by itself???
 <assignment-expression> ::=   <indetifier> = <conditional-expression> 
                             | <indetifier> = <function-definition>
                             | <indetifier> = <assignment-expression>
