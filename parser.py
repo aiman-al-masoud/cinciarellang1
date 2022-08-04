@@ -176,16 +176,17 @@ class Parser:
                 return a
 
     def parse_un_exp(self):
-        # a = self.parse_prim_exp()
         
-        pass
+        if self.ts.peek.val not in '-!':
+            a = self.parse_prim_exp()
+            if self.ts.peek.val == '(':
+                b = self.parse_fun_call()
 
-
-    def parse_un_op(self):
-        pass# TODO: really?
 
     def parse_fun_call(self):
+        self.ts.next() # eat '('
         pass
+        self.ts.next() # eat ')'
 
     def parse_prim_exp(self):
         pass
