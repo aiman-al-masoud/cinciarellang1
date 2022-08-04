@@ -16,7 +16,6 @@ class CharStream:
                 self.col+=1
         except:
             pass
-        
 
 
     def peek(self)->'str':
@@ -31,10 +30,13 @@ class CharStream:
     def eof(self):
         return self.pos == len(self.string)    
 
-# s = CharStream("hello world!")
-# # while not s.eof():
-# #     print(s.peek())
-# #     s.next()
 
+# s = CharStream("hello world!")
+# while not s.eof():
+#     print(s.peek())
+#     s.next()
+
+# s.next()
+# s.peek()
 # s.next()
 # s.croak("error: ")
