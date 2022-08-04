@@ -98,15 +98,8 @@ class Parser:
                 return a
 
 
-
-        
-
-        
-
-
-
     def parse_cond_exp(self):
-        pass
+        return self.parse_or_exp()
 
     def parse_or_exp(self):
         pass
