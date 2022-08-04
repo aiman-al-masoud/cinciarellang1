@@ -221,12 +221,12 @@ class Parser:
             f = float(self.ts.peek.val)
             self.ts.next()
             return f
-        elif self.ts.peek.type == 'bool':
+        elif self.ts.peek.type == 'bool': # TODO: in tokenstream
             b = self.ts.peek.val == 'true'
             self.ts.next()
             return b
 
-        
+        # TODO: string in tokenstream
 
 
 
