@@ -201,7 +201,7 @@ class Parser:
 
     def parse_prim_exp(self):
 
-        if self.ts.peek.type == 'id': # var or func 
+        if self.ts.peek.type == 'id': # var 
             a = self.ts.peek
             self.ts.next() # eat 'id'
             return a
