@@ -115,7 +115,20 @@ class Parser:
 
 
     def parse_and_exp(self):
-        pass
+
+        a = self.parse_eq_exp()
+
+        while True:
+            if self.ts.peek.val == '&&':
+                self.ts.next() # eat '&&'
+                b = self.parse_eq_exp()
+                a = {'type' : 'and', 'left' : a, 'right' : b}
+            else:
+                return a
+
+            
+        
+
 
     def parse_eq_exp(self):
         pass
