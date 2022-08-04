@@ -205,13 +205,13 @@ class Parser:
             a = self.ts.peek
             self.ts.next() # eat 'id'
             return a
-        elif self.ts.peek.val == '(':
+        elif self.ts.peek.val == '(': # it's a bracketed expression
             self.ts.next() # eat '('
             a = self.parse_exp()
             self.ts.next() # eat ')'
             return a
         else: # it's a literal
-            
+
 
         
 
