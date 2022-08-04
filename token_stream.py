@@ -99,14 +99,14 @@ class TokenStream:
 
 
 
+source = "#ciao\n#ciao\na+2+34*(4*1)"
+source = "1+1"
 
-# ts = TokenStream(CharStream("#ciao\n#ciao\na+2+34*(4*1)"))
+ts = TokenStream(CharStream(source))
 
-# ts = TokenStream(CharStream("1+1"))
-
-# ts.next()
-# while not ts.eof():
-#     print(ts.peek())
-#     ts.next()
+ts.next()
+while not ts.eof():
+    print(ts.peek())
+    ts.next()
 
 
