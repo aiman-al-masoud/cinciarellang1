@@ -63,7 +63,7 @@ class Parser:
         return a
 
 
-    def parse_func(self):# TODO: add args later
+    def parse_func(self):# TODO: add params later
         
         self.ts.next() # eat 'fun'
         self.ts.next() # eat '('
