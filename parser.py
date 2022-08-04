@@ -264,8 +264,9 @@ class Parser:
 from char_stream import CharStream
 s = "x = fun(){a = 1;y = 2;};  x = 1;"
 s = "x = f(); x = x + 1"
-s = "x = y = a = 1"
-s = "f()+1" # TODO: problem
+# s = "x = y = a = 1;" # TODO: problem
+# s = "f()+1" # TODO: problem
+# s = "x = a = 2;"
 
 p = Parser(TokenStream(CharStream(s)))
 
