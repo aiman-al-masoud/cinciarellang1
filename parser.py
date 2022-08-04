@@ -33,8 +33,14 @@ class Parser:
     def parse_sel_stmt(self):
         
         a = self.parse_exp()
-        
+        b = self.parse_comp_stmt()
 
+        if self.ts.peek.val == 'else':
+            self.ts.next() # eat 'else'
+            c = self.parse_comp_stmt()
+        
+        return {'type' : 'if', 'cond' : a, 'then' : b, 'else': c}
+        
 
 
 
