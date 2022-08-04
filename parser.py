@@ -42,11 +42,18 @@ class Parser:
 
 
 
-
     def parse_comp_stmt(self): # compound statement
         self.ts.next() # eat '{'
-        pass
+
+        res = []
+
+        while self.ts.peek.val != '}':
+            a = self.parse_stmt()
+            res.append(a)
+
         self.ts.next() # eat '}'
+        
+        return {'type':'block', 'val':res}
 
 
     def parse_exp_stmt(self):
