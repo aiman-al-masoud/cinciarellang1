@@ -32,12 +32,12 @@ class Parser:
 
         self.ts.next() # eat 'if'
  
-        a = self.parse_exp()
-        b = self.parse_comp_stmt()
+        a = self.parse_exp() # condition
+        b = self.parse_comp_stmt() # then
 
         if self.ts.peek.val == 'else':
             self.ts.next() # eat 'else'
-            c = self.parse_comp_stmt()
+            c = self.parse_comp_stmt() # else
         
         return {'type' : 'if', 'cond' : a, 'then' : b, 'else': c}
 
