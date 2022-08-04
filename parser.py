@@ -21,6 +21,21 @@ class Parser:
     def parse_exp_stmt(self):
         pass
 
+    def parse_func(self):
+        pass
+
+    def parse_exp(self):
+        pass
+
+    def parse_asgn_exp(self):
+        pass
+
+    def parse_cond_exp(self):
+        pass
+
+
+    
+
 
 
 
