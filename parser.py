@@ -6,8 +6,15 @@ class Parser:
         self.ts = ts
 
     def parse(self):
-        # return self.parse_statement()
-        pass
+        
+        a = []
+        while True:    
+            try:
+                a.append(self.parse_stmt())
+            except:
+                break
+
+        return a            
 
 
     # S -> ES|SS|CS
@@ -235,15 +242,14 @@ class Parser:
 
 
 from char_stream import CharStream
-s = "x = fun(){a = 1;y = 2;};"
+s = "x = fun(){a = 1;y = 2;};  x = 1;"
 
 
 p = Parser(TokenStream(CharStream(s)))
 
 
-x = p.parse_stmt()
-
-print(x)
+y = p.parse()
+print(y)
 
 
 
