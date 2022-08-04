@@ -69,7 +69,9 @@
 <primary-expression> ::= <identifier>
                          | <constant>
                          | ( <expression> )
-                                      
+
+
+//aka: literal                   
 <constant> ::= <number>
                | <string>
                | <bool>

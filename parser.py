@@ -33,8 +33,41 @@ class Parser:
     def parse_cond_exp(self):
         pass
 
+    def parse_or_exp(self):
+        pass
 
-    
+    def parse_and_exp(self):
+        pass
+
+    def parse_eq_exp(self):
+        pass
+
+    def parse_add_exp(self):
+        pass
+
+    def parse_mul_exp(self):
+        pass
+
+    def parse_un_exp(self):
+        pass
+
+    def parse_un_op(self):
+        pass# TODO: really?
+
+    def parse_prim_exp(self):
+        pass
+
+    def parse_const(self): # AKA: literal
+        pass
+
+
+
+
+
+
+
+
+
 
 
 
