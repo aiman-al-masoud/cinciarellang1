@@ -160,7 +160,20 @@ class Parser:
                 return a
 
     def parse_mul_exp(self):
-        pass
+        
+        a = self.parse_un_exp()
+
+        while True:
+            if self.ts.peek.val == "*":
+                self.ts.next() # eat '*'
+                b = self.parse_un_exp()
+                a = {'type' : 'mul', 'left' : a, 'right' : b}
+            elif self.ts.peek.val == "/":
+                self.ts.next() # eat '/'
+                b = self.parse_un_exp()
+                a = {'type' : 'div', 'left' : a, 'right' : b}
+            else:
+                return a
 
     def parse_un_exp(self):
         pass
