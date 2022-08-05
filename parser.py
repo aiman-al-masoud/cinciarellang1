@@ -199,7 +199,7 @@ class Parser:
             a = self.parse_prim_exp()
             # print(a, "hereeh")
             # print(self.ts.peek.val, "neeext")
-
+            
             if self.ts.peek.val == '(':
                 # print("hello")
                 b = self.parse_fun_call_args()
@@ -261,18 +261,18 @@ class Parser:
 
 
 
-from char_stream import CharStream
-s = "x = fun(){a = 1;y = 2;};  x = 1;"
-s = "x = f(); x = x + 1"
-# s = "x = y = a = 1;" # TODO: problem
-# s = "f()+1" # TODO: problem
-# s = "x = a = 2;"
+# from char_stream import CharStream
+# s = "x = fun(){a = 1;y = 2;};  x = 1;"
+# s = "x = f(); x = x + 1"
+# # s = "x = y = a = 1;" # TODO: problem
+# # s = "f()+1" # TODO: problem
+# # s = "x = a = 2;"
 
-p = Parser(TokenStream(CharStream(s)))
+# p = Parser(TokenStream(CharStream(s)))
 
 
-y = p.parse()
-print(y)
+# y = p.parse()
+# print(y)
 
 
 

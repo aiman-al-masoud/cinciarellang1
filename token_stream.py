@@ -1,14 +1,16 @@
 from char_stream import CharStream
 
 
-class Token():
+class Token(dict):
     
     def __init__(self, _type:str, val:str):
         self.type = _type
         self.val = val
+        self['type'] = _type
+        self['val'] = val
     
-    def __repr__(self):
-        return f"{{ 'type' : '{self.type}', 'val' : '{self.val}' }}"
+    # def __repr__(self):
+    #     return f"{{ 'type' : '{self.type}', 'val' : '{self.val}' }}"
 
 
 class TokenStream:
