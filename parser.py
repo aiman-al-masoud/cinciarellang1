@@ -96,7 +96,8 @@ class Parser:
             
             # try:
             # a = self.parse_un_exp()
-            a = self.parse_cond_exp()
+            a = self.parse_add_exp()
+            # a = self.parse_cond_exp()
             # except Exception as e :
                 # print(e)
 

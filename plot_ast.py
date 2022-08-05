@@ -23,12 +23,12 @@ s = "x = y = 1;"
 
 s = 'b = 1 == false ;'
 
-s = "b = (1 + 1);"
+# s = "b = (1 + 1);"
 p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
-print(a)
-exit()
+# print(a)
+# exit()
 
 
 
@@ -65,7 +65,7 @@ exit()
 
 
 
-print(a)
+# print(a)
 # exit()
 
 
