@@ -82,7 +82,7 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
         cld = []
     
     try:
-        xc = a['type']
+        xc = a['type']+str(id(a)%100)
         # print(xc, id(a)%100)
     except:
         xc = None
