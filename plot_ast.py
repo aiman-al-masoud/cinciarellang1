@@ -83,6 +83,7 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
     
     try:
         xc = a['type']
+        print(xc, id(a)%100)
     except:
         xc = None
 
@@ -91,14 +92,19 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
             # print(p, "has:",  xc)
             el+=[(p, xc)]
         
-        u = [c for c in cld if c!='type']
+        u = [c+str(id(a)%100) for c in cld if c!='type']
+        
         # print(xc, "has:", u)
         el+=[(xc, i) for i in u ]
+
+        # for c in cld:
+            # print(c, id(a)%100)
+
 
     
     if len(cld) > 0:
         for c in cld:
-            add = to_edgelist(a[c], c)
+            add = to_edgelist(a[c], c+str(id(a)%100))
             el += add
     
     return el
