@@ -1,9 +1,14 @@
+import pydot
+from networkx.drawing.nx_pydot import graphviz_layout
+
 import networkx as nx
 from matplotlib import pyplot as plt
+
+
+
 from char_stream import CharStream
 from token_stream import TokenStream
 from parser import Parser
-
 
 # s = "scemo = 1;"
 
@@ -14,7 +19,10 @@ s = """
 p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
-print(a)
+# print(a)
+
+
+
 
 
 # a = nx.from_dict_of_dicts( {0:  {1: {2: 0 }},  1 :  {2: {}}, 2 :{3: {}}  } )
@@ -25,4 +33,79 @@ print(a)
 # labels = nx.get_node_attributes(a, 'name')
 # nx.draw(a, labels=labels)
 # plt.show()
+
+
+# b = nx.from_edgelist([  (1, 2), (1, 3), (2, 4), (2, 5), (3, 6), (3, 7)  ])
+# # b = nx.from_nested_tuple(  ( )  , sensible_relabeling=True)
+
+# lay = graphviz_layout(b, prog="circo")
+# nx.draw(b, lay)
+# plt.show()
+
+
+
+# import networkx as nx
+# import matplotlib.pyplot as plt
+# # coord = {0: [8, 0], 2: [9, -1], 1: [8, -2], 4: [10, -2], 3: [9, -3], 5: [11, -3]}
+# coord = {0: [8, 0], 2: [7, -1], 1: [8, -2], 4: [10, -2], 3: [9, -3], 5: [11, -3]}
+
+# eg = [[0, 2], [2, 1], [2, 4], [4, 3], [4, 5]]
+# g=nx.Graph()
+# g.add_edges_from(eg) 
+# nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue", pos=coord) 
+# plt.show()
+
+
+
+# print(a)
+
+
+def to_edgelist(ast:dict, p:str=None): # a: ast
+
+    a = ast
+
+    try:
+        cld = a.keys() # children
+    except:
+        cld = []
+
+    xc = None if 'type' not in a else a['type']
+    if xc is not None:
+        if p is not None:
+            print(p, "has:",  xc)
+        print(xc, "has:", [c for c in cld if c!='type'])
+
+    # el = [ (a['type'], c) for c in cld ]
+
+    if len(cld) > 0:
+        for c in cld:
+            add = to_edgelist(a[c], c)
+            # el += add
+
+    # return el    
+
+
+# print(to_edgelist(a))
+to_edgelist(a)
+
+
+
+
+# 
+# Traverse the graph
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
 
