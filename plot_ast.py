@@ -7,9 +7,12 @@ from parser import Parser
 
 # s = "scemo = 1;"
 
-s='x = fun(){ x = 1; }; a = 1;'
+s = """
+    x = fun(){ x = 1; };
+    a = 1;
+    """
 p = Parser(TokenStream(CharStream(s)))
-a = p.parse()[0]
+a = p.parse()[ (n := 0) ] # nth statement
 
 print(a)
 
