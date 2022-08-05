@@ -93,12 +93,11 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
         u = [c+str(id(a)%100) for c in cld if c!='type']
         
         el+=[(xc, i) for i in u ]
-        
+
     
     if len(cld) > 0:
         for c in cld:
-            add = to_edgelist(a[c], c+str(id(a)%100))
-            el += add
+            el += to_edgelist(a[c], c+str(id(a)%100))
     
     return el
 
