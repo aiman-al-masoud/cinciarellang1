@@ -86,14 +86,17 @@ class Parser:
 
 
     def parse_asgn_exp(self):
+        # print("hello 4")
         
-        if self.ts.peek.type == 'id':
+        # TODO: there was a problem here when using parse_un_op, too low level at this point
+        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'bool' or self.ts.peek.type == 'str':
             # a = self.ts.peek
             # print(a, "hello!")
             # self.ts.next() # eat 'id'
             
             # try:
-            a = self.parse_un_exp()
+            # a = self.parse_un_exp()
+            a = self.parse_cond_exp()
             # except Exception as e :
                 # print(e)
 
@@ -228,13 +231,15 @@ class Parser:
         return res
 
     def parse_prim_exp(self):
-
+        # print("hello", self.ts.peek)
         if self.ts.peek.type == 'id': # var 
             a = self.ts.peek
             self.ts.next() # eat 'id'
             return a
         elif self.ts.peek.val == '(': # it's a bracketed expression
             self.ts.next() # eat '('
+            # print("hello 2")
+            # print(self.ts.peek, "hello 3")
             a = self.parse_exp()
             self.ts.next() # eat ')'
             return a

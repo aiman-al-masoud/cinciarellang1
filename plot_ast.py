@@ -27,8 +27,8 @@ s = "b = (1 + 1);"
 p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
-# print(a)
-
+print(a)
+exit()
 
 
 
