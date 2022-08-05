@@ -72,6 +72,7 @@ a = p.parse()[ (n := 0) ] # nth statement
 def to_edgelist(ast:dict, p:str=None): # a: ast
 
     a = ast
+    el = []
 
     try:
         cld = a.keys() # children
@@ -85,35 +86,23 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
 
     if xc is not None:
         if p is not None:
-            print(p, "has:",  xc)
-        print(xc, "has:", [c for c in cld if c!='type'])
+            # print(p, "has:",  xc)
+            el+=[(p, xc)]
+        
+        u = [c for c in cld if c!='type']
+        # print(xc, "has:", u)
+        el+=[(xc, i) for i in u ]
 
     
     if len(cld) > 0:
         for c in cld:
             add = to_edgelist(a[c], c)
+            el += add
+    
+    return el
 
 
-to_edgelist(a)
+el = to_edgelist(a)
+print(el)
 
-
-
-
-# 
-# Traverse the graph
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
 
