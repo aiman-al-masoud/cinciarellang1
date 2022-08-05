@@ -16,6 +16,14 @@ s = """
     x = fun(){ x = 1; };
     a = 1;
     """
+
+s = "x = 2 + 1;"
+
+s = "x = y = 1;"
+
+s = 'b = 1 == false ;'
+
+s = "b = (1 + 1);"
 p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
@@ -57,7 +65,8 @@ a = p.parse()[ (n := 0) ] # nth statement
 
 
 
-# print(a)
+print(a)
+# exit()
 
 
 def to_edgelist(ast:dict, p:str=None): # a: ast
@@ -68,24 +77,23 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
         cld = a.keys() # children
     except:
         cld = []
+    
+    try:
+        xc = a['type']
+    except:
+        xc = None
 
-    xc = None if 'type' not in a else a['type']
     if xc is not None:
         if p is not None:
             print(p, "has:",  xc)
         print(xc, "has:", [c for c in cld if c!='type'])
 
-    # el = [ (a['type'], c) for c in cld ]
-
+    
     if len(cld) > 0:
         for c in cld:
             add = to_edgelist(a[c], c)
-            # el += add
-
-    # return el    
 
 
-# print(to_edgelist(a))
 to_edgelist(a)
 
 

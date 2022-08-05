@@ -199,7 +199,7 @@ class Parser:
             a = self.parse_prim_exp()
             # print(a, "hereeh")
             # print(self.ts.peek.val, "neeext")
-            
+
             if self.ts.peek.val == '(':
                 # print("hello")
                 b = self.parse_fun_call_args()
@@ -244,15 +244,19 @@ class Parser:
 
 
     def parse_const(self): # AKA: literal
-
+        # TODO: decide if to return token or parsed value
         if self.ts.peek.type == 'num':
-            f = float(self.ts.peek.val)
+            # f = float(self.ts.peek.val)
+            f = self.ts.peek
             self.ts.next()
+            # return {'type' : 'num', 'val' : f}
             return f
-        elif self.ts.peek.type == 'bool': # TODO: in tokenstream
-            b = self.ts.peek.val == 'true'
-            self.ts.next()
-            return b
+        elif self.ts.peek.type == 'kw': # TODO: in tokenstream
+            if self.ts.peek.val == 'true' or self.ts.peek.val == 'false':
+                b = self.ts.peek.val == 'true'
+                # b = self.ts.peek
+                self.ts.next()
+                return {'type':'bool', 'val':b}
 
         # TODO: string in tokenstream
 
