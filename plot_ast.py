@@ -94,7 +94,14 @@ print(el, "\n")
 print(pos)
 
 
-coord = pos
+# coord = pos
 g = nx.from_edgelist(el)
-nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue", pos=coord) 
+nx.draw(g, with_labels=False, node_size=1500, node_color="skyblue", pos=pos) 
+
+import re
+
+labels  = {p[0]:re.sub('\d+', '', p[0]) for p in pos.items()}
+
+# print(labels)
+nx.draw_networkx_labels(g, pos, labels ,font_size=16,font_color='r')
 plt.show()
