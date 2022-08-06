@@ -15,11 +15,11 @@ s = """
 
 # s = "x = y = 1;"
 
-# s = 'b = 1 == false ;'
+s = 'b = 1 == false ;'
 
 # s = "b = (1 + 1);"
 
-s = "1+2;"
+# s = "1+2;"
 
 
 p = Parser(TokenStream(CharStream(s)))
@@ -29,7 +29,7 @@ a = p.parse()[ (n := 0) ] # nth statement
 pos =  {}
 # v = (0,0)
 
-def to_edgelist(ast:dict, p:str=None, ppos=(0,0)): # a: ast
+def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # a: ast
 
     global pos
 
@@ -52,8 +52,10 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,0)): # a: ast
     if tx not in pos   and tx is not None :
         if 'left' in tx:
             pos[tx] = (ppos[0]-1, ppos[1]-1) # down and to the left
-        else:
+        elif 'right' in tx:
             pos[tx] = (ppos[0]+1, ppos[1]-1) # down and to the right
+        else:
+            pos[tx] = (ppos[0], ppos[1]-1) # down 
 
 
     if tx is not None:
@@ -75,8 +77,10 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,0)): # a: ast
                 y = pos[tx][1] -1 # tx is cx's parent
                 if 'left' in cx:
                     pos[cx] = (pos[tx][0]-1, y)
-                else:
+                elif 'right' in cx:
                     pos[cx] = (pos[tx][0]+1, y)
+                else:
+                    pos[cx] = (pos[tx][0], y)
 
             
             el += to_edgelist(a[c], cx, pos[cx])
@@ -92,5 +96,5 @@ print(pos)
 
 coord = pos
 g = nx.from_edgelist(el)
-nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue")#, pos=coord) 
+nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue", pos=coord) 
 plt.show()
