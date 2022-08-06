@@ -61,7 +61,7 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     hier_id = str(id(ast)) # hierarchy id
 
     if not isinstance(ast, dict): # base case
-        print(p, ast) # values of atoms
+        # print(p, ast) # values of atoms
         return el, pos
     
     tx = ast['type']+hier_id # current node
