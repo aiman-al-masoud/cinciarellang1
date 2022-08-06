@@ -90,5 +90,5 @@ print(pos)
 
 coord = pos
 g = nx.from_edgelist(el)
-nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue", pos=coord) 
+nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue")#, pos=coord) 
 plt.show()
