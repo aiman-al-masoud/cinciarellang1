@@ -103,7 +103,7 @@ class Parser:
 
             # print(a, "hello!")
 
-        while True:
+        while True: # TODO: assignment is supposed to be right assoc, here it's not
 
             if self.ts.peek.val == '=':
                 self.ts.next() # eat '='
