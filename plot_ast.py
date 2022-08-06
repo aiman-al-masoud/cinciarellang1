@@ -60,29 +60,52 @@ def to_edgelist(ast:dict): # a: ast
         el = []
         hier_id = str(id(a)) # hierarchy id
 
-        # tx represents the current node
-        try:
-            tx = a['type']+hier_id # type + hierarchy id
-        except:
-            tx = None
+        # # tx represents the current node
+        # try:
+        #     tx = a['type']+hier_id # type + hierarchy id
+        # except:
+        #     # print("problem!"+hier_id)
+        #     tx = None
 
-        # these are tx's children
-        try:
-            cld = a.keys() # children
-        except:
-            cld = []
+        # # these are tx's children
+        # try:
+        #     cld = a.keys() # children
+        # except:
+        #     # print("problem!"+hier_id)
+        #     cld = []
+
+
+
+        if not isinstance(a, dict):
+            return el
+        
+
+        tx = a['type']+hier_id # type + hierarchy id
+        cld = a.keys() # children
+
 
         
-        if tx not in pos   and tx is not None :
+        # if tx not in pos and tx is not None :
+        #     pos[tx] = get_cpos(tx, ppos)
+
+        if tx not in pos:
             pos[tx] = get_cpos(tx, ppos)
 
 
-        if tx is not None:
-            if p is not None: # p is tx's parent
-                el+=[(p, tx)]
+        # if tx is not None:
+        #     if p is not None: # p is tx's parent
+        #         el+=[(p, tx)]
             
-            u = [c+hier_id for c in cld if c!='type']
-            el+=[(tx, i) for i in u ]
+        #     u = [c+hier_id for c in cld if c!='type']
+        #     el+=[(tx, i) for i in u ]
+
+
+        
+        if p is not None: # p is tx's parent
+            el+=[(p, tx)]
+            
+        # u = [c+hier_id for c in cld if c!='type']
+        el+=[ (tx, c+hier_id) for c in cld if c!='type' ]
 
         
         if len(cld) > 0:
