@@ -38,7 +38,6 @@ def to_edgelist(ast:dict): # a: ast
     def inner(ast:dict, p:str=None, ppos=(0,1)):
         
         nonlocal pos
-
         a = ast
         el = []
         hier_id = str(id(a)%1000) # hierarchy id
