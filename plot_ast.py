@@ -69,6 +69,7 @@ def main():
     """
     s = "x = 2 + 1;"
     # s = "x = y = z = 1;" # wrong
+    # s = "true+false;" # problem!
     # s = "x = y =  1;" 
     # s = 'b = 1 == false ;'
     # s = "b = (1 + 1);"
@@ -76,7 +77,6 @@ def main():
     # s = "b = (1 +  (x = 1));"
     # s = "1+2;"
     # s = "a=1;"
-    # s = "true+false;" # problem!
     # s = "x = true || false;"
 
     p = Parser(TokenStream(CharStream(s)))
