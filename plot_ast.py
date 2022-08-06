@@ -68,6 +68,7 @@ def main():
     a = 1;
     """
     s = "x = 2 + 1;"
+    # s = "f(1);"
     # s = "x = y = z = 1;" # wrong
     # s = "true+false;" # problem!
     # s = "x = y =  1;" 
