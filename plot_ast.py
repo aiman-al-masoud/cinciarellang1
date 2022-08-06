@@ -54,7 +54,6 @@ def get_cpos(cx:str, ppos:(int, int)): # child's pos from parent's pos
 
 def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's position
     
-    # nonlocal pos
     pos = {}
     el = []
     hier_id = str(id(ast)) # hierarchy id
