@@ -60,29 +60,12 @@ def to_edgelist(ast:dict): # a: ast
         el = []
         hier_id = str(id(a)) # hierarchy id
 
-        # # tx represents the current node
-        # try:
-        #     tx = a['type']+hier_id # type + hierarchy id
-        # except:
-        #     # print("problem!"+hier_id)
-        #     tx = None
-
-        # # these are tx's children
-        # try:
-        #     cld = a.keys() # children
-        # except:
-        #     # print("problem!"+hier_id)
-        #     cld = []
-
-
 
         if not isinstance(a, dict):
             return el
         
-
         tx = a['type']+hier_id # type + hierarchy id
-        cld = a.keys() # children
-
+        cld = [c for c in a.keys() if c != 'type'] # children
 
         
         # if tx not in pos and tx is not None :
@@ -105,7 +88,7 @@ def to_edgelist(ast:dict): # a: ast
             el+=[(p, tx)]
             
         # u = [c+hier_id for c in cld if c!='type']
-        el+=[ (tx, c+hier_id) for c in cld if c!='type' ]
+        el+=[ (tx, c+hier_id) for c in cld ]
 
         
         if len(cld) > 0:
