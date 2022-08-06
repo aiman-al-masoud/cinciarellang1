@@ -81,8 +81,8 @@ def main():
     # s = "(1+3)+4*2;" # problem!
     # s = "x = 2 + 1;"
     s = "x = (1+2)*4;"
-    s = "1+2*4;"
-    s = "1+2;"
+    # s = "1+2*4;"
+    # s = "1+2;"
     
 
     p = Parser(TokenStream(CharStream(s)))
