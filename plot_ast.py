@@ -26,10 +26,16 @@ p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
 
+pos =  {}
+v = (0,0)
+
 def to_edgelist(ast:dict, p:str=None): # a: ast
+
+    global pos
 
     a = ast
     el = []
+
 
     try:
         cld = a.keys() # children
@@ -40,6 +46,9 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
         xc = a['type']+str(id(a)%100)
     except:
         xc = None
+    
+    if xc not in pos:
+        pos[xc] =  v
 
     if xc is not None:
         if p is not None:
@@ -50,14 +59,24 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
 
     
     if len(cld) > 0:
-        for c in cld:
+        for i, c in enumerate(cld):
             el += to_edgelist(a[c], c+str(id(a)%100))
+
+            if c+str(id(a)%100) not in pos:
+                print(c, "hello there")
+                y = v[1] -1
+                if 'left' in c+str(id(a)%100):
+                    pos[c+str(id(a)%100)] = (v[0]-1, y)
+                else:
+                    pos[c+str(id(a)%100)] = (v[0]+1, y)
     
     return el
 
 
 el = to_edgelist(a)
-print(el)
+print(el, "\n")
+
+print(pos)
 
 
 # from random import randint
@@ -69,6 +88,7 @@ print(el)
 # coord = {  n : get_coord(n)  for n in [e[0] for e in el]+[e[1] for e in el] }
 # print(coord)
 
+coord = pos
 g = nx.from_edgelist(el)
-nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue")#, pos=coord) 
+nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue", pos=coord) 
 plt.show()
