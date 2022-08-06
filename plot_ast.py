@@ -71,7 +71,7 @@ def to_edgelist(ast:dict): # a: ast
 
         
         if len(cld) > 0:
-            for i, c in enumerate(cld):
+            for c in cld:
                 
                 cx = c+str(id(a)%100) # child + hierarchy id
 
