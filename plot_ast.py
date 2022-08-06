@@ -56,8 +56,8 @@ def get_cpos(cx:str, ppos:(int, int))->(int, int): # child's pos from parent's p
 
 def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's position
 
-    pos = {}
-    el = []
+    pos = {} # node : position 
+    el = [] # edge list
     hier_id = str(id(ast)) # hierarchy id
 
     if not isinstance(ast, dict):
