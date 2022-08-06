@@ -28,8 +28,6 @@ p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
 
-# pos =  {}
-# v = (0,0)
 
 def to_edgelist(ast:dict): # a: ast
 
