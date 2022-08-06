@@ -74,9 +74,9 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
         for c in cld:
             cx = c+hier_id # child + hierarchy id
             pos.update( {cx: get_cpos(cx, pos[tx])} )
-            a, b = to_edgelist(ast[c], cx, pos[cx])
-            el+=a
-            pos.update(b)
+            _el, _pos = to_edgelist(ast[c], cx, pos[cx])
+            el+=_el
+            pos.update(_pos)
     
     return el, pos
     
