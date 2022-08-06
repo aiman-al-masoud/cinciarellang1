@@ -65,31 +65,17 @@ def to_edgelist(ast:dict): # a: ast
         
         tx = a['type']+hier_id # type + hierarchy id
         cld = [c for c in a.keys() if c != 'type'] # children
-
-        # if tx not in pos:
         pos[tx] = get_cpos(tx, ppos)
-        # else:
-            # print("I was gonna get added again")
         
         if p is not None: # p is tx's parent
             el+=[(p, tx)]
-        else:
-            print("I was gonna get added again!")
-
             
         el+=[ (tx, c+hier_id) for c in cld ]
 
-
         if len(cld) > 0:
             for c in cld:
-                
                 cx = c+hier_id # child + hierarchy id
-
-                # if cx not in pos:
                 pos[cx] = get_cpos(cx, pos[tx])
-                # else:
-                    # print("I was gonna get added again!")
-
                 el += inner(a[c], cx, pos[cx])
         
         return el
