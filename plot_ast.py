@@ -11,13 +11,13 @@ s = """
     a = 1;
     """
 
-s = "x = 2 + 1;"
+# s = "x = 2 + 1;"
 
-s = "x = y = 1;"
+# s = "x = y = 1;"
 
-s = 'b = 1 == false ;'
+# s = 'b = 1 == false ;'
 
-s = "b = (1 + 1);"
+# s = "b = (1 + 1);"
 
 s = "1+2;"
 
@@ -27,9 +27,9 @@ a = p.parse()[ (n := 0) ] # nth statement
 
 
 pos =  {}
-v = (0,0)
+# v = (0,0)
 
-def to_edgelist(ast:dict, p:str=None): # a: ast
+def to_edgelist(ast:dict, p:str=None, ppos=(0,0)): # a: ast
 
     global pos
 
@@ -49,8 +49,12 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
         cld = []
 
     
-    if tx not in pos:
-        pos[tx] =  v
+    if tx not in pos   and tx is not None :
+        if 'left' in tx:
+            pos[tx] = (ppos[0]-1, ppos[1]-1) # down and to the left
+        else:
+            pos[tx] = (ppos[0]+1, ppos[1]-1) # down and to the right
+
 
     if tx is not None:
         if p is not None: # p is tx's parent
@@ -68,14 +72,14 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
 
             if cx not in pos:
                 print(c, "hello there")
-                y = v[1] -1
+                y = pos[tx][1] -1 # tx is cx's parent
                 if 'left' in cx:
-                    pos[cx] = (v[0]-1, y)
+                    pos[cx] = (pos[tx][0]-1, y)
                 else:
-                    pos[cx] = (v[0]+1, y)
+                    pos[cx] = (pos[tx][0]+1, y)
 
             
-            el += to_edgelist(a[c], cx)
+            el += to_edgelist(a[c], cx, pos[cx])
     
     return el
 
@@ -86,16 +90,7 @@ print(el, "\n")
 print(pos)
 
 
-# from random import randint
-# # lvl = 0
-# def get_coord(n: str):
-#     import re 
-#     l = int(re.sub('\D+', '', n))
-#     return (randint(1, 10), l)
-# coord = {  n : get_coord(n)  for n in [e[0] for e in el]+[e[1] for e in el] }
-# print(coord)
-
 coord = pos
 g = nx.from_edgelist(el)
-nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue")#, pos=coord) 
+nx.draw(g, with_labels=True, node_size=1500, node_color="skyblue", pos=coord) 
 plt.show()
