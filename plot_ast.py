@@ -17,7 +17,7 @@ s = "x = y = z = 1;" # wrong
  
 s = "x = y =  1;" 
 
-# s = 'b = 1 == false ;'
+s = 'b = 1 == false ;'
 
 # s = "b = (1 + 1);"
 
@@ -28,69 +28,75 @@ p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
 
 
-pos =  {}
+# pos =  {}
 # v = (0,0)
 
-def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # a: ast
+def to_edgelist(ast:dict): # a: ast
 
-    global pos
+    pos = {}
 
-    a = ast
-    el = []
-
-    # tx represents the current node
-    try:
-        tx = a['type']+str(id(a)%100) # type + hierarchy id
-    except:
-        tx = None
-
-    # these are tx's children
-    try:
-        cld = a.keys() # children
-    except:
-        cld = []
-
-    
-    if tx not in pos   and tx is not None :
-        if 'left' in tx:
-            pos[tx] = (ppos[0]-1, ppos[1]-1) # down and to the left
-        elif 'right' in tx:
-            pos[tx] = (ppos[0]+1, ppos[1]-1) # down and to the right
-        else:
-            pos[tx] = (ppos[0], ppos[1]-1) # down 
-
-
-    if tx is not None:
-        if p is not None: # p is tx's parent
-            el+=[(p, tx)]
+    def inner(ast:dict, p:str=None, ppos=(0,1)):
         
-        u = [c+str(id(a)%100) for c in cld if c!='type']
-        el+=[(tx, i) for i in u ]
+        nonlocal pos
 
-    
-    if len(cld) > 0:
-        for i, c in enumerate(cld):
+        a = ast
+        el = []
+
+        # tx represents the current node
+        try:
+            tx = a['type']+str(id(a)%100) # type + hierarchy id
+        except:
+            tx = None
+
+        # these are tx's children
+        try:
+            cld = a.keys() # children
+        except:
+            cld = []
+
+        
+        if tx not in pos   and tx is not None :
+            if 'left' in tx:
+                pos[tx] = (ppos[0]-1, ppos[1]-1) # down and to the left
+            elif 'right' in tx:
+                pos[tx] = (ppos[0]+1, ppos[1]-1) # down and to the right
+            else:
+                pos[tx] = (ppos[0], ppos[1]-1) # down 
+
+
+        if tx is not None:
+            if p is not None: # p is tx's parent
+                el+=[(p, tx)]
             
-            cx = c+str(id(a)%100) # child + hierarchy id
+            u = [c+str(id(a)%100) for c in cld if c!='type']
+            el+=[(tx, i) for i in u ]
 
-
-            if cx not in pos:
+        
+        if len(cld) > 0:
+            for i, c in enumerate(cld):
                 
-                y = pos[tx][1] -1 # tx is cx's parent
-                if 'left' in cx:
-                    pos[cx] = (pos[tx][0]-1, y)
-                elif 'right' in cx:
-                    pos[cx] = (pos[tx][0]+1, y)
-                else:
-                    pos[cx] = (pos[tx][0], y)
-
-            
-            el += to_edgelist(a[c], cx, pos[cx])
-    
-    return el
+                cx = c+str(id(a)%100) # child + hierarchy id
 
 
-el = to_edgelist(a)
+                if cx not in pos:
+                    
+                    y = pos[tx][1] -1 # tx is cx's parent
+                    if 'left' in cx:
+                        pos[cx] = (pos[tx][0]-1, y)
+                    elif 'right' in cx:
+                        pos[cx] = (pos[tx][0]+1, y)
+                    else:
+                        pos[cx] = (pos[tx][0], y)
+
+                
+                el += inner(a[c], cx, pos[cx])
+        
+        return el
+
+    return inner(ast), pos
+
+
+el, pos = to_edgelist(a)
 print(el, "\n")
 
 print(pos)
