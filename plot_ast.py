@@ -63,8 +63,8 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     if not isinstance(ast, dict):
         return el, pos
     
-    tx = ast['type']+hier_id # type + hierarchy id
-    cld = [c for c in ast.keys() if c != 'type'] # children
+    tx = ast['type']+hier_id # current node
+    cld = [c for c in ast.keys() if c != 'type'] # current node's children
     pos[tx] = get_cpos(tx, ppos)
     
     if p is not None: # p is tx's parent
