@@ -83,10 +83,12 @@ def main():
     s = "x = (1+2)*4;"
     # s = "1+2*4;"
     # s = "1+2;"
+    # s = "if x {y = 1;}else{y = 2; y = y + 1; };"
     
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement
+    print(a)
     plot_ast(a)
 
 
