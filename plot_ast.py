@@ -35,7 +35,7 @@ def to_edgelist(ast:dict): # a: ast
 
     pos = {}
 
-    def inner(ast:dict, p:str=None, ppos=(0,1)):
+    def inner(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's position
         
         nonlocal pos
         a = ast
