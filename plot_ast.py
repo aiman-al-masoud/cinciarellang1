@@ -36,26 +36,25 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
     a = ast
     el = []
 
-
     try:
         cld = a.keys() # children
     except:
         cld = []
     
     try:
-        xc = a['type']+str(id(a)%100)
+        tx = a['type']+str(id(a)%100) # type + hierarchy id
     except:
-        xc = None
+        tx = None
     
-    if xc not in pos:
-        pos[xc] =  v
+    if tx not in pos:
+        pos[tx] =  v
 
-    if xc is not None:
+    if tx is not None:
         if p is not None:
-            el+=[(p, xc)]
+            el+=[(p, tx)]
         
         u = [c+str(id(a)%100) for c in cld if c!='type']
-        el+=[(xc, i) for i in u ]
+        el+=[(tx, i) for i in u ]
 
     
     if len(cld) > 0:
