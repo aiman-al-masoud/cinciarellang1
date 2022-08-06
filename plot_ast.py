@@ -42,7 +42,7 @@ a = p.parse()[ (n := 0) ] # nth statement
 
 
 
-def get_cpos(cx:str, ppos:(int, int)): # child's pos from parent's pos
+def get_cpos(cx:str, ppos:(int, int))->(int, int): # child's pos from parent's pos
 
         y_dwn = ppos[1]-1
 
