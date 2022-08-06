@@ -67,7 +67,7 @@ def main():
     x = fun(){ x = 1; };
     a = 1;
     """
-    s = "x = 2 + 1;"
+   
     # s = "f(1);" 
     # s = "x = y = z = 1;" # wrong
     # s = "true+false;" # problem!
@@ -76,9 +76,11 @@ def main():
     # s = "b = (1 + 1);"
     # s = "b = (1 + (2+3));"
     # s = "b = (1 +  (x = 1));"
-    # s = "1+2;"
     # s = "a=1;"
     # s = "x = true || false;"
+    s = "x = 2 + 1;"
+    s = "1+2;"
+    s = "1+2*4;"
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement
