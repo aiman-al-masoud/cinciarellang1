@@ -40,7 +40,7 @@ def to_edgelist(ast:dict): # a: ast
         nonlocal pos
         a = ast
         el = []
-        hier_id = str(id(a)%1000) # hierarchy id
+        hier_id = str(id(a)) # hierarchy id
 
         # tx represents the current node
         try:
