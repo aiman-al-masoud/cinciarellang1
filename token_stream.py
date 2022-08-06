@@ -8,10 +8,6 @@ class Token(dict):
         self.val = val
         self['type'] = _type
         self['val'] = val
-    
-    # def __repr__(self):
-    #     return f"{{ 'type' : '{self.type}', 'val' : '{self.val}' }}"
-
 
 class TokenStream:
 
