@@ -111,21 +111,16 @@ class TokenStream:
 
 
 
+# source = "#ciao\n#ciao\na+2+34*(4*1)"
+# source = "1+1"
 
-    
-    
+# source = """
+#          f = fun(){
+#             y = 1;
+#          }
 
-
-source = "#ciao\n#ciao\na+2+34*(4*1)"
-source = "1+1"
-
-source = """
-         f = fun(){
-            y = 1;
-         }
-
-         f(1)*8;
-         """
+#          f(1)*8;
+#          """
 
 # ts = TokenStream(CharStream(source))
 
