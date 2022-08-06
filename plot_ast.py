@@ -59,10 +59,11 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     pos = {} # node : position 
     el = [] # edge list
     hier_id = str(id(ast)) # hierarchy id
+    labels = {}
 
     if not isinstance(ast, dict): # base case
         # print(p, ast) # values of atoms
-        return el, pos
+        return el, pos, {p : ast}
     
     tx = ast['type']+hier_id # current node
     cld = [c for c in ast.keys() if c != 'type'] # current node's children
@@ -76,19 +77,21 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     pos.update( {c+hier_id : get_cpos(c+hier_id, pos[tx]) for c in cld } )
 
     for c in cld:
-        _el, _pos = to_edgelist(ast[c], c+hier_id, pos[c+hier_id])
+        _el, _pos, _labels = to_edgelist(ast[c], c+hier_id, pos[c+hier_id])
         el+=_el
         pos.update(_pos)
+        labels.update(_labels)
     
-    return el, pos
+    return el, pos, labels
     
 
 def plot_ast(ast:dict):
 
-    el, pos = to_edgelist(ast)
+    el, pos, l = to_edgelist(ast)
     g = nx.from_edgelist(el)
     nx.draw(g, with_labels=False, node_size=1500, node_color="skyblue", pos=pos) 
-    labels  = {p[0]:re.sub('\d+', '', p[0]) for p in pos.items()}
+    labels = {p[0]:re.sub('\d+', '', p[0]) for p in pos.items()}
+    labels.update(l)
     nx.draw_networkx_labels(g, pos, labels ,font_size=16,font_color='k')
     plt.show()
 
