@@ -44,14 +44,14 @@ a = p.parse()[ (n := 0) ] # nth statement
 
 def get_cpos(cx:str, ppos:(int, int))->(int, int): # child's pos from parent's pos
 
-        y_dwn = ppos[1]-1
+    y_dwn = ppos[1]-1
 
-        if 'left' in cx:
-            return (ppos[0]-1, y_dwn) # down and to the left
-        if 'right' in cx:
-            return (ppos[0]+1, y_dwn) # down and to the right
+    if 'left' in cx:
+        return (ppos[0]-1, y_dwn) # down and to the left
+    if 'right' in cx:
+        return (ppos[0]+1, y_dwn) # down and to the right
 
-        return (ppos[0], y_dwn) # down 
+    return (ppos[0], y_dwn) # down 
 
 
 def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's position
