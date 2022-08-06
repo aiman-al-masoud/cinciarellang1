@@ -1,5 +1,6 @@
 import networkx as nx
 from matplotlib import pyplot as plt
+import re
 
 from char_stream import CharStream
 from token_stream import TokenStream
@@ -104,7 +105,7 @@ print(pos)
 g = nx.from_edgelist(el)
 nx.draw(g, with_labels=False, node_size=1500, node_color="skyblue", pos=pos) 
 
-import re
+
 
 labels  = {p[0]:re.sub('\d+', '', p[0]) for p in pos.items() if 'type' not in p[0]}
 
