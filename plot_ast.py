@@ -33,7 +33,7 @@ s = "b = (1 +  (x = 1));"
 
 # s = "true+false;" # problem!
 
-s = "x = true || false;"
+# s = "x = true || false;"
 
 
 
@@ -73,11 +73,11 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     el+=[ (tx, c+hier_id) for c in cld ]
     pos.update( {c+hier_id : get_cpos(c+hier_id, pos[tx]) for c in cld } )
 
-    if len(cld) > 0:
-        for c in cld:
-            _el, _pos = to_edgelist(ast[c], c+hier_id, pos[c+hier_id])
-            el+=_el
-            pos.update(_pos)
+    # if len(cld) > 0:
+    for c in cld:
+        _el, _pos = to_edgelist(ast[c], c+hier_id, pos[c+hier_id])
+        el+=_el
+        pos.update(_pos)
     
     return el, pos
     
