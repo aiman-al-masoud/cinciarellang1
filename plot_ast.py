@@ -75,7 +75,7 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # a: ast
 
 
             if cx not in pos:
-                print(c, "hello there")
+                
                 y = pos[tx][1] -1 # tx is cx's parent
                 if 'left' in cx:
                     pos[cx] = (pos[tx][0]-1, y)
