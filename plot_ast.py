@@ -67,6 +67,9 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     
     tx = ast['type']+hier_id # current node
     cld = [c for c in ast.keys() if c != 'type'] # current node's children
+
+    labels.update({tx : ast['type']})
+    labels.update({ c+hier_id: c for c in cld })
     
     if p is not None: # p is tx's parent
         el+=[(p, tx)]
@@ -87,11 +90,9 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
 
 def plot_ast(ast:dict):
 
-    el, pos, l = to_edgelist(ast)
+    el, pos, labels = to_edgelist(ast)
     g = nx.from_edgelist(el)
     nx.draw(g, with_labels=False, node_size=1500, node_color="skyblue", pos=pos) 
-    labels = {p[0]:re.sub('\d+', '', p[0]) for p in pos.items()}
-    labels.update(l)
     nx.draw_networkx_labels(g, pos, labels ,font_size=16,font_color='k')
     plt.show()
 
