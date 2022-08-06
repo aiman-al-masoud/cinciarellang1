@@ -34,7 +34,6 @@ def to_edgelist(ast:dict): # a: ast
 
     pos = {}
 
-
     def inner(ast:dict, p:str=None, ppos=(0,1)):
         
         nonlocal pos
