@@ -52,11 +52,6 @@ def get_cpos(cx:str, ppos:(int, int)): # child's pos from parent's pos
         return (ppos[0], y_dwn) # down 
 
 
-
-# def to_edgelist(ast:dict): # a: ast
-
-    # pos = {}  
-
 def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's position
     
     # nonlocal pos
@@ -86,9 +81,7 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
             pos.update(b)
     
     return el, pos
-
-    # return inner(ast), pos
-
+    
 
 def plot_ast(ast:dict):
 
