@@ -65,11 +65,12 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     
     tx = ast['type']+hier_id # current node
     cld = [c for c in ast.keys() if c != 'type'] # current node's children
-    pos[tx] = get_cpos(tx, ppos)
     
     if p is not None: # p is tx's parent
         el+=[(p, tx)]
-        
+
+    pos[tx] = get_cpos(tx, ppos) # tx's position as a func of parent's
+
     el+=[ (tx, c+hier_id) for c in cld ]
     pos.update( {c+hier_id : get_cpos(c+hier_id, pos[tx]) for c in cld } )
 
