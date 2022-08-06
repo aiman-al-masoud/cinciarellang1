@@ -62,15 +62,16 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
     
     if len(cld) > 0:
         for i, c in enumerate(cld):
-            el += to_edgelist(a[c], c+str(id(a)%100))
+            cx = c+str(id(a)%100) # child + hierarchy id
+            el += to_edgelist(a[c], cx)
 
-            if c+str(id(a)%100) not in pos:
+            if cx not in pos:
                 print(c, "hello there")
                 y = v[1] -1
-                if 'left' in c+str(id(a)%100):
-                    pos[c+str(id(a)%100)] = (v[0]-1, y)
+                if 'left' in cx:
+                    pos[cx] = (v[0]-1, y)
                 else:
-                    pos[c+str(id(a)%100)] = (v[0]+1, y)
+                    pos[cx] = (v[0]+1, y)
     
     return el
 
