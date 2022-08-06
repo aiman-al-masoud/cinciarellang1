@@ -62,8 +62,9 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
     
     if len(cld) > 0:
         for i, c in enumerate(cld):
+            
             cx = c+str(id(a)%100) # child + hierarchy id
-            el += to_edgelist(a[c], cx)
+
 
             if cx not in pos:
                 print(c, "hello there")
@@ -72,6 +73,9 @@ def to_edgelist(ast:dict, p:str=None): # a: ast
                     pos[cx] = (v[0]-1, y)
                 else:
                     pos[cx] = (v[0]+1, y)
+
+            
+            el += to_edgelist(a[c], cx)
     
     return el
 
