@@ -7,40 +7,6 @@ from token_stream import TokenStream
 from parser import Parser
 
 
-s = """
-    x = fun(){ x = 1; };
-    a = 1;
-    """
-
-s = "x = 2 + 1;"
-
-# s = "x = y = z = 1;" # wrong
- 
-# s = "x = y =  1;" 
-
-# s = 'b = 1 == false ;'
-
-# s = "b = (1 + 1);"
-
-# s = "b = (1 + (2+3));"
-
-# s = "b = (1 +  (x = 1));"
-
-
-# s = "1+2;"
-
-# s = "a=1;"
-
-# s = "true+false;" # problem!
-
-# s = "x = true || false;"
-
-
-
-p = Parser(TokenStream(CharStream(s)))
-a = p.parse()[ (n := 0) ] # nth statement
-
-
 
 def get_cpos(cx:str, ppos:(int, int))->(int, int): # child's pos from parent's pos
 
@@ -95,4 +61,28 @@ def plot_ast(ast:dict):
     nx.draw_networkx_labels(g, pos, labels ,font_size=16,font_color='k')
     plt.show()
 
-plot_ast(a)
+
+def main():
+    s = """
+    x = fun(){ x = 1; };
+    a = 1;
+    """
+    s = "x = 2 + 1;"
+    # s = "x = y = z = 1;" # wrong
+    # s = "x = y =  1;" 
+    # s = 'b = 1 == false ;'
+    # s = "b = (1 + 1);"
+    # s = "b = (1 + (2+3));"
+    # s = "b = (1 +  (x = 1));"
+    # s = "1+2;"
+    # s = "a=1;"
+    # s = "true+false;" # problem!
+    # s = "x = true || false;"
+
+    p = Parser(TokenStream(CharStream(s)))
+    a = p.parse()[ (n := 0) ] # nth statement
+    plot_ast(a)
+
+
+if __name__ == '__main__':
+    main()
