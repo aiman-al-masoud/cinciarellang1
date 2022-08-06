@@ -60,7 +60,7 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
     el = [] # edge list
     hier_id = str(id(ast)) # hierarchy id
 
-    if not isinstance(ast, dict):
+    if not isinstance(ast, dict): # base case
         return el, pos
     
     tx = ast['type']+hier_id # current node
@@ -72,7 +72,7 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
         
     el+=[ (tx, c+hier_id) for c in cld ]
     pos.update( {c+hier_id : get_cpos(c+hier_id, pos[tx]) for c in cld } )
-    
+
     for c in cld:
         _el, _pos = to_edgelist(ast[c], c+hier_id, pos[c+hier_id])
         el+=_el
