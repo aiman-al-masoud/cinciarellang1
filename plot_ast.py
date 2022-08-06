@@ -74,12 +74,6 @@ def to_edgelist(ast:dict): # a: ast
 
         
         if tx not in pos   and tx is not None :
-            # if 'left' in tx:
-            #     pos[tx] = (ppos[0]-1, ppos[1]-1) # down and to the left
-            # elif 'right' in tx:
-            #     pos[tx] = (ppos[0]+1, ppos[1]-1) # down and to the right
-            # else:
-            #     pos[tx] = (ppos[0], ppos[1]-1) # down 
             pos[tx] = get_cpos(tx, ppos)
 
 
@@ -96,19 +90,8 @@ def to_edgelist(ast:dict): # a: ast
                 
                 cx = c+hier_id # child + hierarchy id
 
-
                 if cx not in pos:
-                    
-                    # y = pos[tx][1] -1 # tx is cx's parent
-                    # if 'left' in cx:
-                    #     pos[cx] = (pos[tx][0]-1, y)
-                    # elif 'right' in cx:
-                    #     pos[cx] = (pos[tx][0]+1, y)
-                    # else:
-                    #     pos[cx] = (pos[tx][0], y)
-
                     pos[cx] = get_cpos(cx, pos[tx])
-
                 
                 el += inner(a[c], cx, pos[cx])
         
