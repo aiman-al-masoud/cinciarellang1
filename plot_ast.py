@@ -21,6 +21,8 @@ s = 'b = 1 == false ;'
 
 s = "b = (1 + 1);"
 
+s = "1+2;"
+
 
 p = Parser(TokenStream(CharStream(s)))
 a = p.parse()[ (n := 0) ] # nth statement
