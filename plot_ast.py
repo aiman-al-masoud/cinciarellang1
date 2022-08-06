@@ -85,7 +85,6 @@ def to_edgelist(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's p
 def plot_ast(ast:dict):
 
     el, pos = to_edgelist(ast)
-    # print(el, "\n", pos)
     g = nx.from_edgelist(el)
     nx.draw(g, with_labels=False, node_size=1500, node_color="skyblue", pos=pos) 
     labels  = {p[0]:re.sub('\d+', '', p[0]) for p in pos.items() if 'type' not in p[0]}
