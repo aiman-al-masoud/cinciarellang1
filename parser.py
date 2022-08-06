@@ -113,7 +113,7 @@ class Parser:
                 else:
                     b = self.parse_cond_exp()
 
-                a = {'type' : 'asgn', 'left' : a, 'right' : b}
+                a = {'type' : '=', 'left' : a, 'right' : b} # TODO: figure out why sometimes asgn and sometimes = when type=='asgn'
             else:
                 return a
 
