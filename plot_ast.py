@@ -56,15 +56,14 @@ def to_edgelist(ast:dict): # a: ast
     def inner(ast:dict, p:str=None, ppos=(0,1)): # p: parent, ppos: parent's position
         
         nonlocal pos
-        a = ast
         el = []
-        hier_id = str(id(a)) # hierarchy id
+        hier_id = str(id(ast)) # hierarchy id
 
-        if not isinstance(a, dict):
+        if not isinstance(ast, dict):
             return el
         
-        tx = a['type']+hier_id # type + hierarchy id
-        cld = [c for c in a.keys() if c != 'type'] # children
+        tx = ast['type']+hier_id # type + hierarchy id
+        cld = [c for c in ast.keys() if c != 'type'] # children
         pos[tx] = get_cpos(tx, ppos)
         
         if p is not None: # p is tx's parent
@@ -76,7 +75,7 @@ def to_edgelist(ast:dict): # a: ast
             for c in cld:
                 cx = c+hier_id # child + hierarchy id
                 pos[cx] = get_cpos(cx, pos[tx])
-                el += inner(a[c], cx, pos[cx])
+                el += inner(ast[c], cx, pos[cx])
         
         return el
 
