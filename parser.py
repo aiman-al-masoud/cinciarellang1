@@ -9,6 +9,7 @@ class Parser:
         
         a = []
         while True:    
+            # a.append(self.parse_stmt())
             try:
                 a.append(self.parse_stmt())
             except:
@@ -28,6 +29,7 @@ class Parser:
             a = self.parse_comp_stmt()
 
         else:
+            print("call parse exp stmt")
             a = self.parse_exp_stmt()
 
         return a
@@ -64,6 +66,7 @@ class Parser:
 
 
     def parse_exp_stmt(self):
+        print("call parse_exp")
         a  = self.parse_exp()
         self.ts.next() # eat ';' # TODO: check semicolon presence
         return a
@@ -95,8 +98,8 @@ class Parser:
 
     def parse_asgn_exp(self): # TODO: there was a problem here when using parse_un_op, too low level at this point
         
-        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'kw' or self.ts.peek.type == 'str':
-         
+        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'bool' or self.ts.peek.type == 'str':
+            print("call parse_cond_exp")
             a = self.parse_cond_exp()
 
         while True: # TODO: assignment is supposed to be right assoc, here it's not
@@ -119,6 +122,8 @@ class Parser:
 
     def parse_or_exp(self):
         
+        print("call parse_and_exp")
+
         a = self.parse_and_exp()
 
         while True:
@@ -132,6 +137,7 @@ class Parser:
 
     def parse_and_exp(self):
 
+        print("call parse_eq_exp")
         a = self.parse_eq_exp()
 
         while True:
@@ -145,6 +151,7 @@ class Parser:
 
     def parse_eq_exp(self):
 
+        print("call parse add_exp")
         a = self.parse_add_exp()
 
         while True:
@@ -158,6 +165,7 @@ class Parser:
 
     def parse_add_exp(self):
 
+        print("call parse_mul_exp")
         a = self.parse_mul_exp()
 
         while True:
@@ -174,6 +182,7 @@ class Parser:
 
     def parse_mul_exp(self):
         
+        print("call parse_un_exp")
         a = self.parse_un_exp()
 
         while True:
@@ -190,7 +199,9 @@ class Parser:
 
     def parse_un_exp(self):
         
-        if self.ts.peek.val not in '-!':
+        print("in parse_un_exp", self.ts.peek.val)
+        if str(self.ts.peek.val) not in '-!':
+            print("so here!")
 
             a = self.parse_prim_exp()
 
@@ -225,6 +236,8 @@ class Parser:
 
     def parse_prim_exp(self):
 
+        print('in parse_prim_exp')
+
         if self.ts.peek.type == 'id': # var 
             a = self.ts.peek
             self.ts.next() # eat 'id'
@@ -239,19 +252,32 @@ class Parser:
 
 
 
-    def parse_const(self): # AKA: literal
-        if self.ts.peek.type == 'num':
-            f = self.ts.peek
-            self.ts.next()
-            return f
-        elif self.ts.peek.type == 'kw': # TODO: in tokenstream
-            if self.ts.peek.val == 'true' or self.ts.peek.val == 'false':
-                b = self.ts.peek.val == 'true'
-                self.ts.next()
-                return {'type':'bool', 'val':b}
-        elif self.ts.peek.type =='str':
+    def parse_const(self): # AKA: immutable type literal
+
+        # if self.ts.peek.type == 'num':
+        #     f = self.ts.peek
+        #     self.ts.next()
+        #     return f
+        # # elif self.ts.peek.type == 'kw': # TODO: in tokenstream
+        #     # if self.ts.peek.val == 'true' or self.ts.peek.val == 'false':
+        #         # b = self.ts.peek.val == 'true'
+        #         # self.ts.next()
+        #         # return {'type':'bool', 'val':b}
+        # elif self.ts.peek.type=='bool':
+        #     a = self.ts.peek
+        #     self.ts.next()
+        #     return a
+        # elif self.ts.peek.type =='str':
+        #     a = self.ts.peek
+        #     self.ts.next()
+        #     return a
+
+        print("parse const", self.ts.peek)
+        if self.ts.peek.type in ['num', 'bool', 'str']:
             a = self.ts.peek
+            print("helloooooo?")
             self.ts.next()
+            print("helloooooo?")
             return a
 
 
