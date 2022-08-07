@@ -237,9 +237,8 @@ class Parser:
             return self.parse_const()
 
 
-
     def parse_const(self): # AKA: immutable type literal
-        
+
         if self.ts.peek.type in ['num', 'bool', 'str']:
             a = self.ts.peek
             self.ts.next()
