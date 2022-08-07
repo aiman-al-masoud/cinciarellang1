@@ -50,7 +50,7 @@ class TokenStream:
             self.cs.next()
             return 
 
-        if TokenStream.is_str_delim(c):
+        if TokenStream.is_str_delim(c): # TODO: add escape chars
             self.cs.next() # eat "
             s = self.read_while(lambda c: not TokenStream.is_str_delim(c))
             print("read str:", s)
