@@ -278,7 +278,9 @@ class Parser:
                 self.ts.next()
                 return {'type':'bool', 'val':b}
         elif self.ts.peek.type =='str':
-            return self.ts.peek
+            a = self.ts.peek
+            self.ts.next()
+            return a
 
         # TODO: string in tokenstream
 
