@@ -53,11 +53,8 @@ class TokenStream:
         if TokenStream.is_str_delim(c): # TODO: add escape chars
             self.cs.next() # eat "
             s = self.read_while(lambda c: not TokenStream.is_str_delim(c))
-            print("read str:", s)
             self.current = {'type' : 'str', 'val' : s}
-            print("char after:", self.cs.peek())
             self.cs.next() # eat "
-            print("char after eating end quote:", self.cs.peek())
             return 
 
 
