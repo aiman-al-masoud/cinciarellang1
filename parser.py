@@ -12,7 +12,6 @@ class Parser:
             try:
                 a.append(self.parse_stmt())
             except Exception as e :
-                # print(e.with_traceback())
                 break
 
         return a            
@@ -119,7 +118,6 @@ class Parser:
 
     def parse_or_exp(self):
 
-        print("got called")
 
         a = self.parse_and_exp()
 
@@ -192,7 +190,6 @@ class Parser:
 
     def parse_un_exp(self):
 
-        print("parse un exp")
         
         if str(self.ts.peek.val) not in '-!':
 
