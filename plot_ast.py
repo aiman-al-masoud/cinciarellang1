@@ -96,6 +96,7 @@ def main():
     # s = "-(1-2);" 
     s = "!true;"
     # s = "1;"
+    s = "1+1; 2+2; 3*3+4;"
 
     p = Parser(TokenStream(CharStream(s)))
     # a = p.parse()[ (n := 0) ] # nth statement
