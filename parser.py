@@ -282,9 +282,6 @@ class Parser:
             self.ts.next()
             return a
 
-        # TODO: string in tokenstream
-
-
 
 
 
