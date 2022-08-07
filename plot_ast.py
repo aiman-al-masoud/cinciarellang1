@@ -98,7 +98,7 @@ def main():
     # s = "1;"
     s = "1+1; 2+2; 3*3+4;"
     s = "if x {y = 1;}else{y = 2; y = y + 1; };"
-    s = "if x {}"
+    # s = "if x {}"
 
 
     p = Parser(TokenStream(CharStream(s)))
