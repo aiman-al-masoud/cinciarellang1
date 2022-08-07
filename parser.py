@@ -239,25 +239,7 @@ class Parser:
 
 
     def parse_const(self): # AKA: immutable type literal
-
-        # if self.ts.peek.type == 'num':
-        #     f = self.ts.peek
-        #     self.ts.next()
-        #     return f
-        # # elif self.ts.peek.type == 'kw': # TODO: in tokenstream
-        #     # if self.ts.peek.val == 'true' or self.ts.peek.val == 'false':
-        #         # b = self.ts.peek.val == 'true'
-        #         # self.ts.next()
-        #         # return {'type':'bool', 'val':b}
-        # elif self.ts.peek.type=='bool':
-        #     a = self.ts.peek
-        #     self.ts.next()
-        #     return a
-        # elif self.ts.peek.type =='str':
-        #     a = self.ts.peek
-        #     self.ts.next()
-        #     return a
-
+        
         if self.ts.peek.type in ['num', 'bool', 'str']:
             a = self.ts.peek
             self.ts.next()
