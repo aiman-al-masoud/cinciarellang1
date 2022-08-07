@@ -91,6 +91,7 @@ def main():
     # s = 's = "hello";'
     # s = 's = "hello" + "ciao";' 
     # s = "c = 1+1;"
+    # s = "-1;" # problem!
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement
