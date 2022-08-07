@@ -52,7 +52,8 @@ class Parser:
 
     def parse_comp_stmt(self): # compound statement
         
-        self.ts.next() # eat '{'
+        # self.ts.next() # eat '{'
+        self.eat("{")
 
         res = []
 
@@ -60,7 +61,8 @@ class Parser:
             a = self.parse_stmt()
             res.append(a)
 
-        self.ts.next() # eat '}'
+        # self.ts.next() # eat '}'
+        self.eat("}")
         
         return {'type':'block', 'val':res}
 
