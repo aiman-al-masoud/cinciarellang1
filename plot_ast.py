@@ -72,7 +72,7 @@ def main():
     # s = "x = y = z = 1;" # wrong
     # s = "true+false;" # problem!
     # s = "x = y =  1;" # wrong 
-    s = 'b = 1 == false ;' 
+    # s = 'b = 1 == false ;' 
     # s = "b = (1 + 1);"
     # s = "b = (1 + (2+3));"
     # s = "b = (1 +  (x = 1));"
@@ -85,12 +85,13 @@ def main():
     # s = "1+2*4;"
     # s = "1+2;"
     # s = "if x {y = 1;}else{y = 2; y = y + 1; };"
+    s = "f = fun(a,b){a+b;};"
     
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement
     print(a)
-    plot_ast(a)
+    # plot_ast(a)
 
 
 if __name__ == '__main__':

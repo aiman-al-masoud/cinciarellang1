@@ -75,10 +75,24 @@ class Parser:
     def parse_func(self):# TODO: add params later
         
         self.ts.next() # eat 'fun'
+                
         self.ts.next() # eat '('
+        
+        params = []
+        while self.ts.peek.val != ')':
+            # print(self.ts.peek, "not a )")
+            x = self.parse_prim_exp()
+            # print("got arg:", x)
+            params.append(x)
+
+            if self.ts.peek.val != ')':
+                self.ts.next() # eat ,
+
+
         self.ts.next() # eat ')'
-        a = self.parse_comp_stmt()
-        return {'type': 'fun', 'body': a}
+
+        body = self.parse_comp_stmt()
+        return {'type': 'fun', 'params' : params, 'body': body}
 
 
     def parse_exp(self):
