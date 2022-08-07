@@ -87,7 +87,7 @@ def main():
     # s = "if x {y = 1;}else{y = 2; y = y + 1; };"
     # s = "f = fun(a,b){a+b;};"
     # s = "f(a,b)"
-    # s = "f( 1+1, true&&false )"
+    s = "f( 1+1, true&&false );"
     # s = 's = "hello";'
     # s = 's = "hello" + "ciao";' 
     # s = "c = 1+1;"
