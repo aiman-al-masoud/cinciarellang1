@@ -89,7 +89,7 @@ def main():
     s = "f(a,b)"
     s = "f( 1+1, true&&false )"
     s = 's = "hello";'
-    s = 's = "hello" + "ciao";' # wrong!
+    s = 's = "hello" + "ciao";' 
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement
