@@ -9,7 +9,6 @@ class Parser:
         
         a = []
         while True:    
-            # a.append(self.parse_stmt())
             try:
                 a.append(self.parse_stmt())
             except:
