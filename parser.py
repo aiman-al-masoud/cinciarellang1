@@ -67,7 +67,7 @@ class Parser:
     def parse_exp_stmt(self):
         a  = self.parse_exp()
         # self.ts.next() # eat ';' # TODO: check semicolon presence
-        self.eat("punc", ";")
+        self.eat(";")
         return a
 
 
@@ -248,8 +248,12 @@ class Parser:
             self.ts.next()
             return a
 
-    def eat(self, _type="*", val="*"):
-        if (self.ts.peek.type==_type) and (self.ts.peek.val==val):
+    def eat(self, val="*", **kwargs):
+
+        params = {'type': "*"}
+        params.update(kwargs)
+
+        if self.ts.peek.val==val and (params['type']=="*" or params['type']==self.ts.peek.type):
             self.ts.next()
         else:
             self.ts.croak(f"Expected '{val}'")
