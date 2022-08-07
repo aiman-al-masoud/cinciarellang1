@@ -38,7 +38,6 @@ class TokenStream:
         if TokenStream.is_id_start(c):
             s = self.read_while(lambda c : TokenStream.is_id(c))
 
-
             r = {'type':'id', 'val':s}
 
             if TokenStream.is_kw(s):
@@ -49,8 +48,6 @@ class TokenStream:
                 r['val'] = r['val'] == 'true'
 
             self.current  = r
-
-            # self.current =  {'type': 'kw' if TokenStream.is_kw(s) else 'id', 'val':s}
             return 
 
         if TokenStream.is_op(c):
