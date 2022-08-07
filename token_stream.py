@@ -49,7 +49,18 @@ class TokenStream:
             self.current = {'type':'punc', 'val': c}
             self.cs.next()
             return 
-        
+
+        if TokenStream.is_str_delim(c):
+            self.cs.next() # eat "
+            s = self.read_while(lambda c: not TokenStream.is_str_delim(c))
+            print("read str:", s)
+            self.current = {'type' : 'str', 'val' : s}
+            print("char after:", self.cs.peek())
+            self.cs.next() # eat "
+            print("char after eating end quote:", self.cs.peek())
+            return 
+
+
         self.croak("Unexpected char")
 
     @property
@@ -86,7 +97,11 @@ class TokenStream:
     @staticmethod
     def is_kw(s:'str'):
         return s in ['true', 'false', 'if', 'else', 'fun']
-        
+    
+    @staticmethod
+    def is_str_delim(c:'str')->'bool':
+        return c=='"'
+
 
     def read_while(self, predicate)->'str':
 

@@ -242,7 +242,7 @@ class Parser:
                 self.ts.next() # eat ,
 
         self.ts.next() # eat ')'
-        
+
         return args
 
     def parse_prim_exp(self):
@@ -277,6 +277,8 @@ class Parser:
                 # b = self.ts.peek
                 self.ts.next()
                 return {'type':'bool', 'val':b}
+        elif self.ts.peek.type =='str':
+            return self.ts.peek
 
         # TODO: string in tokenstream
 

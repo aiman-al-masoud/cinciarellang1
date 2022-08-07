@@ -88,6 +88,8 @@ def main():
     s = "f = fun(a,b){a+b;};"
     s = "f(a,b)"
     s = "f( 1+1, true&&false )"
+    s = 's = "hello";'
+    s = 's = "hello" + "ciao";' # wrong!
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement
