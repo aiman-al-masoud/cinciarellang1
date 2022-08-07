@@ -52,7 +52,6 @@ class Parser:
 
     def parse_comp_stmt(self): # compound statement
         
-        # self.ts.next() # eat '{'
         self.eat("{")
 
         res = []
@@ -61,7 +60,6 @@ class Parser:
             a = self.parse_stmt()
             res.append(a)
 
-        # self.ts.next() # eat '}'
         self.eat("}")
         
         return {'type':'block', 'val':res}
@@ -69,7 +67,6 @@ class Parser:
 
     def parse_exp_stmt(self):
         a  = self.parse_exp()
-        # self.ts.next() # eat ';' # TODO: check semicolon presence
         self.eat(";")
         return a
 
