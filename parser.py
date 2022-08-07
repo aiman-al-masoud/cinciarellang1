@@ -264,17 +264,13 @@ class Parser:
 
 
     def parse_const(self): # AKA: literal
-        # TODO: decide if to return token or parsed value
         if self.ts.peek.type == 'num':
-            # f = float(self.ts.peek.val)
             f = self.ts.peek
             self.ts.next()
-            # return {'type' : 'num', 'val' : f}
             return f
         elif self.ts.peek.type == 'kw': # TODO: in tokenstream
             if self.ts.peek.val == 'true' or self.ts.peek.val == 'false':
                 b = self.ts.peek.val == 'true'
-                # b = self.ts.peek
                 self.ts.next()
                 return {'type':'bool', 'val':b}
         elif self.ts.peek.type =='str':
