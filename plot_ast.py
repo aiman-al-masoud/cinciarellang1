@@ -90,11 +90,11 @@ def main():
     s = "f( 1+1, true&&false );"
     # s = 's = "hello";'
     # s = 's = "hello" + "ciao";' 
-    # s = "c = 1+1;"
-    s = "-1;" 
+    s = "c = 1+1;"
+    # s = "-1;" 
     # s = "1;"
-    s = "-(1-2);" 
-    s = "!true;"
+    # s = "-(1-2);" 
+    # s = "!true;"
 
 
     p = Parser(TokenStream(CharStream(s)))
