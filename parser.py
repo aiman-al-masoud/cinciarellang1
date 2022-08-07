@@ -12,7 +12,8 @@ class Parser:
             try:
                 a.append(self.parse_stmt())
             except Exception as e :
-                # print(e)
+                if self.ts.peek.val !=';':
+                   print(e)
                 break
 
         return a            
