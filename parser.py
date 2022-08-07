@@ -12,7 +12,7 @@ class Parser:
             try:
                 a.append(self.parse_stmt())
             except Exception as e :
-                print(e)
+                # print(e)
                 break
 
         return a            
