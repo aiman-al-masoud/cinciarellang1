@@ -17,7 +17,6 @@ class Parser:
         return a            
 
 
-    # S -> ES|SS|CS
     def parse_stmt(self):
 
         if self.ts.peek.val == 'if':
@@ -34,7 +33,6 @@ class Parser:
         return a
 
 
-
     def parse_sel_stmt(self):
 
         self.ts.next() # eat 'if'
@@ -48,7 +46,6 @@ class Parser:
             c = self.parse_comp_stmt() # else
         
         return {'type' : 'if', 'cond' : a, 'then' : b, 'else': c}
-
 
 
     def parse_comp_stmt(self): # compound statement
@@ -96,23 +93,11 @@ class Parser:
         return self.parse_asgn_exp()
 
 
-    def parse_asgn_exp(self):
-        # print("hello 4")
+    def parse_asgn_exp(self): # TODO: there was a problem here when using parse_un_op, too low level at this point
         
-        # TODO: there was a problem here when using parse_un_op, too low level at this point
         if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'kw' or self.ts.peek.type == 'str':
-            # a = self.ts.peek
-            # print(a, "hello!")
-            # self.ts.next() # eat 'id'
-            
-            # try:
-            # a = self.parse_un_exp()
-            # a = self.parse_add_exp()
+         
             a = self.parse_cond_exp()
-            # except Exception as e :
-                # print(e)
-
-            # print(a, "hello!")
 
         while True: # TODO: assignment is supposed to be right assoc, here it's not
 
@@ -156,9 +141,6 @@ class Parser:
                 a = {'type' : 'and', 'left' : a, 'right' : b}
             else:
                 return a
-
-            
-        
 
 
     def parse_eq_exp(self):
@@ -208,15 +190,11 @@ class Parser:
 
     def parse_un_exp(self):
         
-        # print(self.ts.peek.val)
         if self.ts.peek.val not in '-!':
 
             a = self.parse_prim_exp()
-            # print(a, "hereeh")
-            # print(self.ts.peek.val, "neeext")
 
             if self.ts.peek.val == '(':
-                # print("hello")
                 b = self.parse_fun_call_args()
                 return {'type' : 'call', 'name' : a, 'args' : b}
 
@@ -246,15 +224,13 @@ class Parser:
         return args
 
     def parse_prim_exp(self):
-        # print("hello", self.ts.peek)
+
         if self.ts.peek.type == 'id': # var 
             a = self.ts.peek
             self.ts.next() # eat 'id'
             return a
         elif self.ts.peek.val == '(': # it's a bracketed expression
             self.ts.next() # eat '('
-            # print("hello 2")
-            # print(self.ts.peek, "hello 3")
             a = self.parse_exp()
             self.ts.next() # eat ')'
             return a
