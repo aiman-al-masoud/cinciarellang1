@@ -86,7 +86,8 @@ def main():
     # s = "1+2;"
     # s = "if x {y = 1;}else{y = 2; y = y + 1; };"
     s = "f = fun(a,b){a+b;};"
-    
+    s = "f(a,b)"
+    s = "f( 1+1, true&&false )"
 
     p = Parser(TokenStream(CharStream(s)))
     a = p.parse()[ (n := 0) ] # nth statement

@@ -100,7 +100,7 @@ class Parser:
         # print("hello 4")
         
         # TODO: there was a problem here when using parse_un_op, too low level at this point
-        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'bool' or self.ts.peek.type == 'str':
+        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'kw' or self.ts.peek.type == 'str':
             # a = self.ts.peek
             # print(a, "hello!")
             # self.ts.next() # eat 'id'
@@ -231,16 +231,28 @@ class Parser:
 
     def parse_fun_call_args(self): # TODO: multiple args
         
-        res = []
-        self.ts.next() # eat '('
+        # res = []
         
-        if self.ts.peek.val != ')':
-            a = self.parse_asgn_exp()
-            res.append(a)
-        
-        self.ts.next() # eat ')'
+        # if self.ts.peek.val != ')':
+        #     a = self.parse_asgn_exp()
+        #     res.append(a)
 
-        return res
+
+        self.ts.next() # eat '('
+
+        args = []
+        while self.ts.peek.val != ')':
+            
+            args.append(self.parse_exp())
+
+            if self.ts.peek.val != ')':
+                self.ts.next() # eat ,
+
+        self.ts.next() # eat ')'
+        
+        # self.ts.next() # eat ')'
+
+        return args
 
     def parse_prim_exp(self):
         # print("hello", self.ts.peek)
