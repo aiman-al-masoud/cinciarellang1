@@ -12,6 +12,7 @@ class Parser:
             try:
                 a.append(self.parse_stmt())
             except Exception as e :
+                print(e)
                 break
 
         return a            
@@ -65,7 +66,8 @@ class Parser:
 
     def parse_exp_stmt(self):
         a  = self.parse_exp()
-        self.ts.next() # eat ';' # TODO: check semicolon presence
+        # self.ts.next() # eat ';' # TODO: check semicolon presence
+        self.eat("punc", ";")
         return a
 
 
@@ -246,8 +248,11 @@ class Parser:
             self.ts.next()
             return a
 
-
-
+    def eat(self, _type="*", val="*"):
+        if (self.ts.peek.type==_type) and (self.ts.peek.val==val):
+            self.ts.next()
+        else:
+            self.ts.croak(f"Expected '{val}'")
 
 
 # from char_stream import CharStream
