@@ -80,14 +80,11 @@ class Parser:
         
         params = []
         while self.ts.peek.val != ')':
-            # print(self.ts.peek, "not a )")
-            x = self.parse_prim_exp()
-            # print("got arg:", x)
-            params.append(x)
+            
+            params.append(self.parse_prim_exp())
 
             if self.ts.peek.val != ')':
                 self.ts.next() # eat ,
-
 
         self.ts.next() # eat ')'
 
