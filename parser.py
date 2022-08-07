@@ -155,7 +155,7 @@ class Parser:
         a = self.parse_add_exp()
 
         while True:
-            if self.ts.peek.val in "== != > < >= <=":
+            if self.ts.peek.val in ['==', '!=', '>', '<', '>=', '<=']:
                 op = self.ts.peek.val
                 self.ts.next() # eat op
                 b = self.parse_add_exp()
