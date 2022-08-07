@@ -11,7 +11,8 @@ class Parser:
         while True:    
             try:
                 a.append(self.parse_stmt())
-            except:
+            except Exception as e :
+                # print(e.with_traceback())
                 break
 
         return a            
@@ -95,7 +96,7 @@ class Parser:
 
     def parse_asgn_exp(self): # TODO: there was a problem here when using parse_un_op, too low level at this point
         
-        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'bool' or self.ts.peek.type == 'str':
+        if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'bool' or self.ts.peek.type == 'str'  or self.ts.peek.val =='-' or self.ts.peek.val=='!':
             a = self.parse_cond_exp()
 
         while True: # TODO: assignment is supposed to be right assoc, here it's not
@@ -117,6 +118,8 @@ class Parser:
         return self.parse_or_exp()
 
     def parse_or_exp(self):
+
+        print("got called")
 
         a = self.parse_and_exp()
 
@@ -188,6 +191,8 @@ class Parser:
                 return a
 
     def parse_un_exp(self):
+
+        print("parse un exp")
         
         if str(self.ts.peek.val) not in '-!':
 
