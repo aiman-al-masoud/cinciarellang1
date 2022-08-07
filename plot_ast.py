@@ -71,16 +71,17 @@ def main():
     # s = "f(1);" 
     # s = "x = y = z = 1;" # wrong
     # s = "true+false;" # problem!
-    # s = "x = y =  1;" 
-    # s = 'b = 1 == false ;'
+    # s = "x = y =  1;" # wrong 
+    s = 'b = 1 == false ;' 
     # s = "b = (1 + 1);"
     # s = "b = (1 + (2+3));"
     # s = "b = (1 +  (x = 1));"
     # s = "a=1;"
     # s = "x = true || false;"
+    # s = "x=(1+3)+4*2;" 
     # s = "(1+3)+4*2;" # problem!
     # s = "x = 2 + 1;"
-    s = "x = (1+2)*4;"
+    # s = "x = (1+2)*4;"
     # s = "1+2*4;"
     # s = "1+2;"
     # s = "if x {y = 1;}else{y = 2; y = y + 1; };"
