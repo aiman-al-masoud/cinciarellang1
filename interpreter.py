@@ -35,8 +35,10 @@ class Interpreter:
             return self.apply_op(ast.type, self.eval(ast.left), self.eval(ast.right))
 
         if ast.type == 'block':
+            r = None
             for s in ast.val:
-                self.eval(s)
+                r = self.eval(s)
+            return r
 
         if ast.type == 'if':
             
@@ -73,8 +75,8 @@ class Interpreter:
         
     def make_fun(self, fun): # lol
         f_env = self.env.new_child()
+        return {'env':f_env, 'params': fun.params, 'body':fun.body}
 
-        
 
 
 
