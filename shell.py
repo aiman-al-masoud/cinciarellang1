@@ -15,4 +15,5 @@ while True:
     for stm in p.parse():
         r = i.eval(stm)
 
-    print(r)
+    if r:
+        print(r)
