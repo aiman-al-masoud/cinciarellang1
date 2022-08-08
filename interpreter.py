@@ -55,7 +55,7 @@ class Interpreter:
 
 
         if ast['type'] == 'fun':
-            return self.make_fun(ast)
+            return self.make_fun(ast) # lol
 
         if ast['type'] == 'call':
             
