@@ -72,7 +72,11 @@ class Interpreter:
         
         
     def make_fun(self, fun): # lol
-        pass
+        f_env = self.env.new_child()
+
+        
+
+
 
     # def make_block(self):
     #     pass
