@@ -84,13 +84,3 @@ class Interpreter:
         return Fun(fun.params, fun.body, self.env, self.eval)
 
 
-
-
-
-
-        
-
-        
-
-       
-    
