@@ -30,7 +30,7 @@ class Interpreter:
 
         if ast.val == '=': # assignment
             rv = self.eval(ast.right)
-            self.env.set(ast.left.val, rv)
+            self.env.set(ast.left['val'], rv)
             return rv 
 
         if ast.type in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
