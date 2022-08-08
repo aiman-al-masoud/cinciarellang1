@@ -12,4 +12,4 @@ redlprint3 = fun(a,b,c,f){
 
 h = fun(a,b){a+b;};
 
-redlprint3(1,2,3, h);
+redlprint3(1,2,3, fun(a,b){a+b;});
