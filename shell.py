@@ -10,7 +10,6 @@ while True:
 
     s = input()
     p = Parser(TokenStream(CharStream(s)))
-    prg = p.parse()
 
     r = None
     for stm in p.parse():
