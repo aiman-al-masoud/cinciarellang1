@@ -13,6 +13,6 @@ while True:
 
     r = None
     for stm in p.parse():
-        r = i.eval(prg[0])
+        r = i.eval(stm)
 
     print(r)
