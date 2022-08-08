@@ -1,6 +1,6 @@
 from enviro import Enviro
 from parser import dotdict
-from fun import Fun
+from fun import Fun, Print
 
 
 class Interpreter:
@@ -8,6 +8,7 @@ class Interpreter:
     def __init__(self):
         self.enviro_stack = []
         self.enviro_stack.append(Enviro(None)) # global
+        self.env.set('print', Print(self.eval))
 
     @property
     def env(self): # current environment
@@ -60,7 +61,7 @@ class Interpreter:
         if ast['type'] == 'call':
             
             f:Fun = self.env.get(ast['name']['val'])
-            e = self.env.new_child()
+            e:Enviro = self.env.new_child()
             self.enter_env(e)
             r = f.run(ast['args'], e)
             self.exit_env()
