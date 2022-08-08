@@ -1,16 +1,16 @@
-#fib = fun(n){
-#
-#    ret = 1;
-#
-#    if n == 0 || n ==1 {
-#        ret = 1;
-#    }else{
-#        ret = fib(n-1) + fib(n-2);
-#    }
-#
-#    ret;
-#};
+fib = fun(n){
 
-fib = fun(n){ ret=1; if n==0 || n==1 {ret=1;}else{ ret= fib(n-1)+fib(n-2); ret; } };
+    ret = 1;
 
+    if n == 0 || n ==1 {
+        ret = 1;
+    }else{
+        ret = fib(n-1) + fib(n-2);
+    }
+
+    ret;
+};
+
+
+# capra
 fib(10);
