@@ -1,4 +1,5 @@
 from enviro import Enviro
+from parser import dotdict
 
 class Interpreter:
 
@@ -17,7 +18,7 @@ class Interpreter:
     def enter_env(self, env:Enviro):
         self.enviro_stack.append(env)
 
-    def eval(self, ast:dict):
+    def eval(self, ast:dotdict):
         
         if ast.type in ['num', 'str', 'bool']:
             return ast.val
@@ -37,10 +38,16 @@ class Interpreter:
         #     pass
 
         if ast.type == 'if':
-            pass
+            
+            if self.eval(ast.cond):
+                return self.eval(ast.then) 
+
+            if 'else' in ast: 
+                return self.eval(ast['else'])
+
 
         if ast.type == 'fun':
-            pass
+            return self.make_fun(ast)
 
         if ast.type == 'call':
             pass
