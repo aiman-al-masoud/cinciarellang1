@@ -8,7 +8,7 @@ i = Interpreter()
 # REPL
 while True:
 
-    s = input()
+    s = input()+";"
     p = Parser(TokenStream(CharStream(s)))
 
     r = None
