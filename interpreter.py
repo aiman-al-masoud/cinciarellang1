@@ -27,7 +27,7 @@ class Interpreter:
         if ast.type in ['num', 'str', 'bool']:
             return ast.val
 
-        if ast.type == 'var':
+        if ast.type == 'id':
             return self.env.get(ast.val)
 
         if ast.type == '=': # assignment
