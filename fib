@@ -1,3 +1,4 @@
+# viva la ricorsività! viva i linguaggi ricorsivi!
 fib = fun(n){
 
     ret = 1;
