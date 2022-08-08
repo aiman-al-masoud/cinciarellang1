@@ -1,15 +1,22 @@
 class Enviro:
 
     def __init__(self, parent:'Enviro'):
-        self.vars:dict = (parent or {}) and parent.vars.copy() 
+        # print("creation of new env from:", parent)
+        self.parent = parent
+        self.vars:dict = {} if not parent else parent.vars
 
     def new_child(self):
         return Enviro(self)
 
     def get(self, key:str):
+        # print('vars:',self.vars,'key:', key)
         return self.vars[key]
 
     def set(self, key:str, val):
+
+        if self.parent and (self.vars is self.parent.vars):
+            self.vars = self.vars.copy()
+
         self.vars[key] = val
 
     def __repr__(self):
