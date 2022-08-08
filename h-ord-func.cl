@@ -4,7 +4,7 @@ maprint3 = fun(a, b, c, f){
 
 maprint3(1,2,3, fun(x){2*x;});
 
-redlprint3 = fun(a,b,c,f){
+redlprint3 = fun(a, b, c, f){
     print(f(f(a,b), c));
 };
 
