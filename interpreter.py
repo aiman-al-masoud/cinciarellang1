@@ -1,5 +1,7 @@
 from enviro import Enviro
 from parser import dotdict
+from fun import Fun
+
 
 class Interpreter:
 
@@ -77,11 +79,7 @@ class Interpreter:
         
         
     def make_fun(self, fun): # lol
-
-        
-
-
-        return {'env':f_env, 'params': fun.params, 'body':fun.body}
+        return Fun(fun.params, fun.body, self.env, self.eval)
 
 
 
