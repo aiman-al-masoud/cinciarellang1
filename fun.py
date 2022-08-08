@@ -3,7 +3,7 @@ from enviro import Enviro
 class Fun:
 
     def __init__(self, params, body, env:Enviro, _eval):
-        self.env = env
+        self.env = env.new_child()
         self.params = params
         self.body = body
         self.eval = _eval
@@ -13,5 +13,5 @@ class Fun:
             self.env.set(self.params[i], self.eval(arg))
 
     def run (self, args):
-        
+
         return self.eval(self.body)
