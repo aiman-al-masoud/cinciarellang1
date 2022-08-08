@@ -12,6 +12,6 @@ fib = fun(n){
     ret;
 };
 
+x = fib(10); # capra capretta
 
-# capra
-fib(10);
+print(x);

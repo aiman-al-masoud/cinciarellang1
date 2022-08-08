@@ -19,4 +19,5 @@ r = None
 for stm in statements:
     r = i.eval(stm)
 
-print(r)
+if r:
+    print(r)
