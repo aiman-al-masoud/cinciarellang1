@@ -13,5 +13,5 @@ class Fun:
             self.env.set(self.params[i], self.eval(arg))
 
     def run (self, args):
-
+        self.bind_args(args)
         return self.eval(self.body)
