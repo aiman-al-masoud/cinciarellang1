@@ -10,7 +10,7 @@ class Fun:
 
     def bind_args(self, args):
         for i, arg in enumerate(args):
-            self.env.set(self.params[i], self.eval(arg))
+            self.env.set(self.params[i]['val'], self.eval(arg))
 
     def run (self, args):
         self.bind_args(args)
