@@ -34,8 +34,9 @@ class Interpreter:
         if ast.type in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
             return self.apply_op(ast.type, self.eval(ast.left), self.eval(ast.right))
 
-        # if ast.type == 'block':
-        #     pass
+        if ast.type == 'block':
+            for s in ast.val:
+                self.eval(s)
 
         if ast.type == 'if':
             
