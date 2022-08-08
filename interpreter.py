@@ -7,14 +7,14 @@ class Interpreter:
 
     def __init__(self):
         self.enviro_stack = []
-        self.enviro_stack.append(Enviro(None))
+        self.enviro_stack.append(Enviro(None)) # global
 
     @property
     def env(self): # current environment
         return self.enviro_stack[-1]
     
     def exit_env(self):
-        if len(self.enviro_stack) > 1:
+        if len(self.enviro_stack) > 1: # 'cuz keep global
             self.enviro_stack.pop()
 
     def enter_env(self, env:Enviro):
