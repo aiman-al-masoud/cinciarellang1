@@ -53,7 +53,10 @@ class Interpreter:
             return self.make_fun(ast)
 
         if ast.type == 'call':
-            pass
+            
+            f = self.env.get(ast.name)
+            # ast.args
+            
 
 
     def apply_op(self, op:str, left, right):
