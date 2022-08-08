@@ -80,6 +80,12 @@ class Interpreter:
         if op == 'div':
             return left / right
 
+        if op == '==':
+            return left == right
+        
+        if op == '!=':
+            return left == right
+
         return eval(f"{left} {op} {right}") # TODO unsafe python eval (remove later)
         
         

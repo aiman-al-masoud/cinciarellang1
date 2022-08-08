@@ -2,8 +2,8 @@ from enviro import Enviro
 
 class Fun:
 
-    def __init__(self, params, body, env:Enviro, _eval):
-        self.env = env.new_child()
+    def __init__(self, params, body, parent: Enviro, _eval):
+        self.env = parent.new_child()
         # print("fun's env:", self.env)
         self.params = params
         self.body = body
