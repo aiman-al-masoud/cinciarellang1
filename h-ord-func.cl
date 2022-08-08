@@ -3,6 +3,6 @@ maprint3 = fun(a, b, c, f){
 };
 
 
-g = fun(x){2*x;};
+g = (fun(x){2*x;});
 
 maprint3(1,2,3, g);
