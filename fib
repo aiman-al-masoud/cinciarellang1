@@ -13,5 +13,4 @@ fib = fun(n){
 };
 
 x = fib(10); # undicesimo termine, capra capretta che bruchi l'erbetta ...
-
 print(x);
