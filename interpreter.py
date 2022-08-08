@@ -60,8 +60,9 @@ class Interpreter:
         if ast['type'] == 'call':
             
             f:Fun = self.env.get(ast['name']['val'])
-            self.enter_env(f.env)
-            r = f.run(ast['args'])
+            e = self.env.new_child()
+            self.enter_env(e)
+            r = f.run(ast['args'], e)
             self.exit_env()
             return r
 
@@ -90,6 +91,6 @@ class Interpreter:
         
         
     def make_fun(self, fun): # lol
-        return Fun(fun['params'], fun['body'], self.env, self.eval)
+        return Fun(fun['params'], fun['body'], self.eval)#self.env, self.eval)
 
 
