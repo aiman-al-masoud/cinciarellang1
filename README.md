@@ -1,4 +1,4 @@
-# cinciarellang
+# Cinciarellang
 A simple dinamically typed, c-like functional programming language.
 
 
