@@ -21,6 +21,8 @@ class Interpreter:
         self.enviro_stack.append(env)
 
     def eval(self, ast:dotdict):
+
+        # print(ast)
         
         if ast.type in ['num', 'str', 'bool']:
             return ast.val
@@ -28,7 +30,8 @@ class Interpreter:
         if ast.type == 'var':
             return self.env.get(ast.val)
 
-        if ast.val == '=': # assignment
+        if ast.type == '=': # assignment
+            # print("assignment!")
             rv = self.eval(ast.right)
             self.env.set(ast.left['val'], rv)
             return rv 
