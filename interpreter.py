@@ -33,7 +33,17 @@ class Interpreter:
         if ast.type in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
             return self.apply_op(ast.type, self.eval(ast.left), self.eval(ast.right))
 
-            
+        if ast.type == 'block':
+            pass
+
+        if ast.type == 'if':
+            pass
+
+        if ast.type == 'fun':
+            pass
+
+        if ast.type == 'call':
+            pass
 
 
     def apply_op(self, op:str, left, right):
@@ -54,6 +64,9 @@ class Interpreter:
         
         
     def make_fun(self): # lol
+        pass
+
+    def make_block(self):
         pass
 
 
