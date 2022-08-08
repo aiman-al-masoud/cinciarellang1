@@ -30,38 +30,38 @@ class Interpreter:
         if ast['type'] == 'id':
             return self.env.get(ast['val'])
 
-        if ast.type == '=': # assignment
+        if ast['type'] == '=': # assignment
             # print("assignment!")
-            rv = self.eval(ast.right)
+            rv = self.eval(ast['right'])
             self.env.set(ast.left['val'], rv)
             return rv 
 
-        if ast.type in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
-            return self.apply_op(ast.type, self.eval(ast.left), self.eval(ast.right))
+        if ast['type'] in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
+            return self.apply_op(ast['type'], self.eval(ast['left']), self.eval(ast['right']))
 
-        if ast.type == 'block':
+        if ast['type'] == 'block':
             r = None
-            for s in ast.val:
+            for s in ast['val']:
                 r = self.eval(s)
             return r
 
-        if ast.type == 'if':
+        if ast['type'] == 'if':
             
-            if self.eval(ast.cond):
-                return self.eval(ast.then) 
+            if self.eval(ast['cond']):
+                return self.eval(ast['then']) 
 
             if 'else' in ast: 
                 return self.eval(ast['else'])
 
 
-        if ast.type == 'fun':
+        if ast['type'] == 'fun':
             return self.make_fun(ast)
 
-        if ast.type == 'call':
+        if ast['type'] == 'call':
             
-            f:Fun = self.env.get(ast.name)
+            f:Fun = self.env.get(ast['name'])
             self.enter_env(f.env)
-            r = f.run(ast.args)
+            r = f.run(ast['args'])
             self.exit_env()
             return r
 
