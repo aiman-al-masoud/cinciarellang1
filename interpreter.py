@@ -33,7 +33,7 @@ class Interpreter:
         if ast['type'] == '=': # assignment
             # print("assignment!")
             rv = self.eval(ast['right'])
-            self.env.set(ast.left['val'], rv)
+            self.env.set(ast['left']['val'], rv)
             return rv 
 
         if ast['type'] in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
@@ -59,7 +59,7 @@ class Interpreter:
 
         if ast['type'] == 'call':
             
-            f:Fun = self.env.get(ast['name'])
+            f:Fun = self.env.get(ast['name']['val'])
             self.enter_env(f.env)
             r = f.run(ast['args'])
             self.exit_env()
