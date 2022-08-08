@@ -84,6 +84,6 @@ class Interpreter:
         
         
     def make_fun(self, fun): # lol
-        return Fun(fun.params, fun.body, self.env, self.eval)
+        return Fun(fun['params'], fun['body'], self.env, self.eval)
 
 
