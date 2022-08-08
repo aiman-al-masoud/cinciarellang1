@@ -1,7 +1,7 @@
 class Enviro:
 
     def __init__(self, parent:'Enviro'):
-        self.vars:dict = (parent or {}) and parent.vars 
+        self.vars:dict = (parent or {}) and parent.vars.copy() 
 
     def new_child(self):
         return Enviro(self)
