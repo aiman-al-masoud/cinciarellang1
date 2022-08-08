@@ -1,5 +1,5 @@
 from token_stream import TokenStream
-
+import traceback
 
 class dotdict(dict):
     """dot.notation to access dict attribs"""
@@ -21,7 +21,8 @@ class Parser:
                 a.append(  dotdict(self.parse_stmt())  )
             except Exception as e :
                 if self.ts.peek.val !=';':
-                   print(e)
+                #    print(e, e.with_traceback(None))
+                    traceback.print_exc()
                 break
 
         return a            
@@ -104,9 +105,12 @@ class Parser:
 
 
     def parse_asgn_exp(self): # TODO: there was a problem here when using parse_un_op, too low level at this point
-        
+                
         if self.ts.peek.type == 'id' or self.ts.peek.type == 'num' or self.ts.peek.type == 'bool' or self.ts.peek.type == 'str'  or self.ts.peek.val =='-' or self.ts.peek.val=='!':
             a = self.parse_cond_exp()
+
+        elif self.ts.peek.val=='fun':
+            a = self.parse_func()
 
         while True: # TODO: assignment is supposed to be right assoc, here it's not
 
