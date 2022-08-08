@@ -4,8 +4,17 @@ maprint3 = fun(a, b, c, f){
 
 maprint3(1,2,3, fun(x){2*x;});
 
-redlprint3 = fun(a, b, c, f){
-    print(f(f(a,b), c));
+
+redl3 = fun(a, b, c, f){
+    f(f(a,b), c);
 };
 
-redlprint3(1,2,3, fun(a,b){a+b;};);
+
+print(redl3(1,2,3, fun(a,b){
+    a+b;
+}));
+
+
+print(redl3(1,2,3, fun(a,b){
+    a-b;
+}));
