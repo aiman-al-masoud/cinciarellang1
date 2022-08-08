@@ -71,7 +71,7 @@ class Interpreter:
         return eval(f"{left} {op} {right}") # TODO unsafe python eval (remove later)
         
         
-    def make_fun(self): # lol
+    def make_fun(self, fun): # lol
         pass
 
     # def make_block(self):
