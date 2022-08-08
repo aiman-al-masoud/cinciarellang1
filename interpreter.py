@@ -56,7 +56,7 @@ class Interpreter:
             
             f = self.env.get(ast.name)
             # ast.args
-            
+
 
 
     def apply_op(self, op:str, left, right):
@@ -77,7 +77,10 @@ class Interpreter:
         
         
     def make_fun(self, fun): # lol
-        f_env = self.env.new_child()
+
+        
+
+
         return {'env':f_env, 'params': fun.params, 'body':fun.body}
 
 
