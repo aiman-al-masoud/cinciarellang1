@@ -56,9 +56,11 @@ class Interpreter:
 
         if ast.type == 'call':
             
-            f = self.env.get(ast.name)
-            # ast.args
-
+            f:Fun = self.env.get(ast.name)
+            self.enter_env(f.env)
+            r = f.run(ast.args)
+            self.exit_env()
+            return r
 
 
     def apply_op(self, op:str, left, right):
@@ -82,10 +84,6 @@ class Interpreter:
         return Fun(fun.params, fun.body, self.env, self.eval)
 
 
-
-
-    # def make_block(self):
-    #     pass
 
 
 
