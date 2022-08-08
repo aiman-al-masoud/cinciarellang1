@@ -26,6 +26,7 @@ def main():
     print(v)
     v.set('x', 'capra')
     print(v)
+    print(e)
 
 if __name__ == "__main__":
     main()
