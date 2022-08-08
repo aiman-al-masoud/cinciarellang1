@@ -12,6 +12,6 @@ fib = fun(n){
     ret;
 };
 
-x = fib(10); # capra capretta
+x = fib(10); # decimo termine, capra capretta che bruchi l'erbetta ...
 
 print(x);
