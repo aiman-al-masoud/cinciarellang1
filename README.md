@@ -13,12 +13,18 @@ This is the very first time I try implementing a parser for a "real McCoy" progr
 
 ### Eg:
 
-Take mathematical expressions as an example, the **Expression** is the topmost structure in the hierarchy, and it is defined as the sum of one or more **Terms**; a **Term** is defined as the product of one or more **Factors**; and a **Factor** is a number, a variable, or a bracketed **Expression**, more concisely:
+Take mathematical expressions as an example, 
+
+1. An **Expression** is the topmost structure in the hierarchy, and it is defined as the sum of one or more **Terms**.
+2. A **Term** is defined as the product of one or more **Factors**
+3. And a **Factor** is a number, a variable, a bracketed **Expression**, or a negated **Factor**. 
+
+More concisely:
 
 ```
 E -> E+T | E-T
 T -> T*F | T/F
-F -> num | var | (E)
+F -> num | var | (E) | -F
 ```
 *(these are known as "production rules").*
 
@@ -28,7 +34,7 @@ parseExp() -> parseTerm() -> parseFactor() ->
     <----------------------------------
 ```
 
-Note how + and - are the weakest operators (think PEMDAS) so they're used to build up the topmost and most "fragile" structure: the **Expression**; while * and / are stronger, so they're used to build up the **Term** structure down in the hierarchy.
+Note how + and - are the weakest operators (think PEMDAS) so they're used to build up the topmost and most "fragile" structure: the **Expression**; while * and / are stronger, so they're used to build up the **Term** structure down in the hierarchy. To implement a full programming language you basically need to extend this simple hierarchy to include operators like: ==, !=, 
 
 ### Sources:
 * https://www.youtube.com/watch?v=SToUyjAsaFk
