@@ -19,8 +19,9 @@ T -> T*F | T/F
 F -> num | var | (E)
 ```
 
+This means that the mutually recursive functions are going to behave like this:
 ```
-pExp() - > pTerm() -> pFactor() ->
+parseExp() - > parseTerm() -> parseFactor() ->
     <------------------------
 ```
 
