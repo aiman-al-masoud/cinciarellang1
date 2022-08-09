@@ -12,12 +12,16 @@ This is the very first time I try implementing a parser for a "real McCoy" progr
 The final result of a call to topmost function `A` will be an object representing the expression's hierarchy, typically an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST (Abstract Syntax Tree)</a>.
 
 
+### Eg: AST
+
+The AST resulting from the expression `c = 1 + 1`:
+
 <img src="docs/res/ast-example.png" width="400" />
 
-*c = 1 + 1*
 
 
-### Eg:
+
+### Eg: Designing a Language
 
 Take mathematical expressions as an example, 
 
