@@ -28,7 +28,7 @@ F -> num | var | (E) | -F
 
 So the mutually recursive trio will behave like this (where arrows indicate function calls):
 ```
-parseExp() -> parseTerm() -> parseFactor() ->
+parseExpression() -> parseTerm() -> parseFactor() ->
     <----------------------------------
 ```
 
