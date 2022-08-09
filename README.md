@@ -11,8 +11,7 @@ This is the very first time I try implementing a parser for a "real McCoy" progr
 
 ### Eg:
 
-Take mathematical expressions as an example, the Expression is the highest 
-
+Take mathematical expressions as an example, the Expression is the highest level, and it is defined as the sum of one or more Terms; a Term is defined as the product of one or more Factors; and a Factor, well that's a number, a variable, or a bracketed Expression.
 
 
 ```
