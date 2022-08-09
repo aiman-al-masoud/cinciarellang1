@@ -1,10 +1,13 @@
+import sys, os, re
+sys.path.append(os.path.join(os.path.split(__file__)[0], "..", "compiler"))
+
 import networkx as nx
 from matplotlib import pyplot as plt
-import re
 
-from char_stream import CharStream
-from token_stream import TokenStream
-from parser import Parser
+from compiler.char_stream import CharStream
+from compiler.token_stream import TokenStream
+from compiler.parser import Parser
+
 
 
 
@@ -94,17 +97,17 @@ def main():
     # s = "-1;" 
     # s = "1;"
     # s = "-(1-2);" 
-    s = "!true;"
+    # s = "!true;"
     # s = "1;"
-    s = "1+1; 2+2; 3*3+4;"
-    s = "if x {y = 1;}else{y = 2; y = y + 1; };"
-    s = "if x {}else"
+    # s = "1+1; 2+2; 3*3+4;"
+    # s = "if x {y = 1;}else{y = 2; y = y + 1; };"
+    # s = "if x {}else"
 
 
     p = Parser(TokenStream(CharStream(s)))
-    # a = p.parse()[ (n := 0) ] # nth statement
+    a = p.parse()[ (n := 0) ] # nth statement
     print(p.parse())
-    # plot_ast(a)
+    plot_ast(a)
 
 
 if __name__ == '__main__':

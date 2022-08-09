@@ -1,9 +1,10 @@
-from enviro import Enviro
-from parser import dotdict
-from fun import Fun, Print
+try: from enviro import Enviro
+except: from .enviro import Enviro
+try: from fun import Fun, Print
+except: from .fun import Fun, Print
 
 
-class Interpreter:
+class Runtime:
 
     def __init__(self):
         self.enviro_stack = []
@@ -21,7 +22,7 @@ class Interpreter:
     def enter_env(self, env:Enviro):
         self.enviro_stack.append(env)
 
-    def eval(self, ast:dotdict):
+    def eval(self, ast):#:dotdict):
 
         # print(ast)
         

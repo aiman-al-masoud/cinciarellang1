@@ -1,4 +1,6 @@
-from enviro import Enviro
+try: from enviro import Enviro
+except: from .enviro import Enviro
+
 
 class Fun:
 

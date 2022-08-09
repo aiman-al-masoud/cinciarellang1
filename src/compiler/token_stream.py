@@ -1,4 +1,5 @@
-from char_stream import CharStream
+try: from char_stream import CharStream
+except: from .char_stream import CharStream
 
 
 class Token(dict):

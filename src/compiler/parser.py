@@ -1,11 +1,13 @@
-from token_stream import TokenStream
+try: from token_stream import TokenStream
+except: from .token_stream import TokenStream
 import traceback
 
-class dotdict(dict):
-    """dot.notation to access dict attribs"""
-    __getattr__ = dict.get
-    __setattr__ = dict.__setitem__
-    __delattr__ = dict.__delitem__
+
+# class dotdict(dict):
+#     """dot.notation to access dict attribs"""
+#     __getattr__ = dict.get
+#     __setattr__ = dict.__setitem__
+#     __delattr__ = dict.__delitem__
 
 
 class Parser:
@@ -18,7 +20,7 @@ class Parser:
         a = []
         while True:    
             try:
-                a.append(  dotdict(self.parse_stmt())  )
+                a.append(  self.parse_stmt() )
             except Exception as e :
                 if self.ts.peek.val !=';':
                 #    print(e, e.with_traceback(None))
