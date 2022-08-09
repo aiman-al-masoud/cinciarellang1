@@ -9,7 +9,7 @@ A simple, dinamically typed, c-like, functional programming language.
 
 This is the very first time I try implementing a parser for a "real McCoy" programming language, with a technique known as <a href="https://en.wikipedia.org/wiki/Recursive_descent_parser">Recursive Descent</a>; where the goal is to write a bunch of <a href="https://en.wikipedia.org/wiki/Mutual_recursion">mutually recursive</a> functions that repeatedly call each other in a loop (eg: `A` calls `B`, `B` calls `C`, and `C` calls back `A`, etc...). The loop eventually terminates, because function `C` eventually decides to return a base value instead of calling `A`. 
 
-The final result of a call to topmost function `A` will be an object representing the expression's hierarchy, typically an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST (Abstract Syntax Tree)</a>.
+The final output of a call to topmost function `A` will be some abstract representatio of the expression's hierarchy, typically an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST (Abstract Syntax Tree)</a>.
 
 
 ### Eg: AST
