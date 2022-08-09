@@ -27,4 +27,13 @@ parseExp() -> parseTerm() -> parseFactor() ->
     <----------------------------------
 ```
 
+### Sources:
+* https://www.youtube.com/watch?v=SToUyjAsaFk
+* https://lisperator.net/pltut/
+
+
+
+
+
+
 
