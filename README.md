@@ -19,7 +19,7 @@ T -> T*F | T/F
 F -> num | var | (E)
 ```
 
-This means that the mutually recursive functions are going to behave like this:
+This means that the mutually recursive functions are going to behave like this (where an arrow indicates the possibility of a call):
 ```
 parseExp() - > parseTerm() -> parseFactor() ->
     <------------------------
