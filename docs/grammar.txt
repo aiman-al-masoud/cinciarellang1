@@ -1,3 +1,10 @@
+/**
+* This is meant to be an approximate pseudo-EBNF description of the grammar,
+* but it is not perfectly accurate and may not always reflect the actual behaviour
+* of the compiler.
+*/
+
+
 <statement> ::=  <expression-statement>
              	 | <selection-statement>
              	 | <compound-statement>
