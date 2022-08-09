@@ -10,6 +10,8 @@ class Runtime:
         self.enviro_stack = []
         self.enviro_stack.append(Enviro(None)) # global
         self.env.set('print', Print(self.eval))
+        self.env.set('chirp', Print(self.eval))
+
 
     @property
     def env(self): # current environment
