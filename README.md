@@ -49,9 +49,9 @@ Note how `+` and `-` are the weakest operators (think PEMDAS) so they're used to
 ### Sources:
 * https://www.youtube.com/watch?v=SToUyjAsaFk
 * https://lisperator.net/pltut/
-
-
-
+* https://en.wikipedia.org/wiki/Recursive_descent_parser
+* https://en.wikipedia.org/wiki/Mutual_recursion
+* https://en.wikipedia.org/wiki/Abstract_syntax_tree
 
 
 
