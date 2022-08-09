@@ -2,14 +2,6 @@ try: from token_stream import TokenStream
 except: from .token_stream import TokenStream
 import traceback
 
-
-# class dotdict(dict):
-#     """dot.notation to access dict attribs"""
-#     __getattr__ = dict.get
-#     __setattr__ = dict.__setitem__
-#     __delattr__ = dict.__delitem__
-
-
 class Parser:
     
     def __init__(self, ts:TokenStream):
@@ -23,7 +15,6 @@ class Parser:
                 a.append(  self.parse_stmt() )
             except Exception as e :
                 if self.ts.peek.val !=';':
-                #    print(e, e.with_traceback(None))
                     traceback.print_exc()
                 break
 
