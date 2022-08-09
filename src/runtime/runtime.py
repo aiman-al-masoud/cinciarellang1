@@ -24,8 +24,9 @@ class Runtime:
 
     def eval(self, ast):#:dotdict):
 
-        # print(ast)
-        
+        if ast is None:
+            return False
+
         if ast['type'] in ['num', 'str', 'bool']:
             return ast['val']
 
