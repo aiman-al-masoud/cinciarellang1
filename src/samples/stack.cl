@@ -3,7 +3,8 @@ stack = fun(){
 };
 
 error = fun(fName){
-    fName+"() called on non-stack!";
+    chirp(fName+"() called on non-stack!");
+    false;
 };
 
 push = fun(s, v){
