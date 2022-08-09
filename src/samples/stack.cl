@@ -9,9 +9,8 @@ error = fun(fName){
 push = fun(s, v){
     
     t = get(s, "type");
-    chirp(t);
 
-    if false{
+    if t != "stack"{
         ret = error("push");
     }else{
         i = get(s, "index") +1;
@@ -41,10 +40,17 @@ pop = fun(s){
 
 x  = stack();
 
-e  = push(x, "crap");
-chirp(e);
-
+push(x, "one");
+push(x, "two");
+push(x, "three");
 
 chirp(x);
+
+chirp(pop(x));
+chirp(pop(x));
+chirp(pop(x));
+
+
+
 
 
