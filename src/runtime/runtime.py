@@ -93,7 +93,7 @@ class Runtime:
             return left == right
         
         if op == '!=':
-            return left == right
+            return left != right
 
         return eval(f"{left} {op} {right}") # TODO unsafe python eval (remove later)
         

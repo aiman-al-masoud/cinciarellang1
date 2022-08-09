@@ -15,4 +15,4 @@ if len(sys.argv) > 1:
 while True:
     i = input("> ")
     o = inter.eval(i)
-    if o: print(o)
+    if o is not None: print( str(o).lower() if o in [True , False] else o )
