@@ -1,7 +1,7 @@
 try: from enviro import Enviro
 except: from .enviro import Enviro
-try: from fun import Fun, Print
-except: from .fun import Fun, Print
+try: from fun import Fun, Print, Object
+except: from .fun import Fun, Print, Object, Get, Set
 
 
 class Runtime:
@@ -11,6 +11,9 @@ class Runtime:
         self.enviro_stack.append(Enviro(None)) # global
         self.env.set('print', Print(self.eval))
         self.env.set('chirp', Print(self.eval))
+        self.env.set("obj", Object())
+        self.env.set("get", Get(self.eval))
+        self.env.set("set", Set(self.eval))
 
 
     @property

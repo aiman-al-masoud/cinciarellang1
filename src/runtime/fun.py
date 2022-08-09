@@ -18,19 +18,41 @@ class Fun:
         return self.eval(self.body)
 
 
-# new env should be created from parent env at function's runtime,
-# or else recursive calls to the function will have trouble reaching the 
-# base case.
-#
+# the following are wrappers around python functions:
 
-
-class Print:#(Fun):
-    
-    # def __init__(self, params, body, _eval):
-    #     Fun.__init__(self, params, body, _eval)
+class Print:
 
     def __init__(self, _eval):
         self.eval = _eval
 
     def run(self, args, env:Enviro):
         print(*[self.eval(arg) for arg in args])
+
+
+class Object:
+
+    def run(self, args, env:Enviro):
+        return {}
+
+
+class Get:
+
+    def __init__(self, _eval):
+        self.eval = _eval
+
+    def run(self, args, env:Enviro):
+        d = self.eval(args[0])
+        k = self.eval(args[1])
+        return d[k] # TODO: handle key error
+
+class Set:
+
+    def __init__(self, _eval):
+        self.eval = _eval
+
+    def run(self, args, env:Enviro):
+        d = self.eval(args[0])
+        k = self.eval(args[1])
+        v = self.eval(args[2])
+        d[k] = v
+        return d
