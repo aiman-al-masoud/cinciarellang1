@@ -20,12 +20,15 @@ E -> E+T | E-T
 T -> T*F | T/F
 F -> num | var | (E)
 ```
+*(these are known as "production rules").*
 
 So the mutually recursive trio will behave like this (where arrows indicate function calls):
 ```
 parseExp() -> parseTerm() -> parseFactor() ->
     <----------------------------------
 ```
+
+Note how + and - are the weakest operators (think PEMDAS) so they're used to build up the topmost and most "fragile" structure: the **Expression**; while * and / are stronger, so they're used to build up the **Term** structure down in the hierarchy.
 
 ### Sources:
 * https://www.youtube.com/watch?v=SToUyjAsaFk
