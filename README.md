@@ -40,7 +40,7 @@ In this simple language, the mutually recursive trio of functions call each othe
 <img src="docs/res/calls-graph.png" width="400"/>
 
 
-To implement a parser for a full programming language, you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||`, `=`, in addition to statements, blocks, function calls, dot notation etc ... using the same recursive descent technique. The weakest operator is typically the assignment operator `=`, as you can also see from the figure above.
+To implement a parser for a full programming language, you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||`, `=`, in addition to strings, bools, statements, blocks, function calls, dot notation etc ... using the same recursive descent technique. The weakest operator is typically the assignment operator `=`, as you can also see from the figure above.
 
 ### Sources:
 * https://www.youtube.com/watch?v=SToUyjAsaFk
