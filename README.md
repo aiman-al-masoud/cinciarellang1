@@ -16,7 +16,7 @@ The final output of a call to function `A` will be some abstract representation 
 
 <br/>
 
-Take mathematical expressions as a simple example:
+Take mathematical expressions as a simple example of a language:
 
 1. An **Expression** is the topmost structure in the hierarchy, and it is defined as the *sum of one or more **Terms***.
 2. A **Term** is defined as the *product of one or more **Factors***
