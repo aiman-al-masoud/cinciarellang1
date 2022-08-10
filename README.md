@@ -4,6 +4,8 @@ A simple, dinamically typed, c-like, functional programming language.
 
 
 <img src="docs/res/cinciarella.jpg" width="500" />
+<a style="font-style : italic;" href="https://en.wikipedia.org/wiki/Eurasian_blue_tit">Eurasian blue tit</a>
+
 
 ## Parser
 
