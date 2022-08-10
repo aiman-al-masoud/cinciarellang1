@@ -16,7 +16,7 @@ You can find some examples of this language's usage here.
 
 ## Grammar
 
-You can get a semi-formal EBNF specification of this language, which is a stripped down and adapted form of the C's programming language grammar.
+You can get a semi-formal EBNF specification of this language, which is a stripped down and adapted form of the C programming language grammar.
 
 https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm
 
