@@ -50,7 +50,7 @@ You may thus implement a recursive trio of functions that behave in such a fashi
 <img src="docs/res/calls-graph.png" width="400"/>
 
 
-To implement a parser for a full programming language, you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||` and `=` (typically the weakest); in addition to strings, bools, statements, blocks, function calls, dot notation etc ... You can do all of that using this very same Recursive Descent technique. You'll first want to build a tokenizer (aka: lexer) to feed proper tokens to the parser.
+To implement a parser for a full programming language, you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||` and `=` (typically the weakest); in addition to strings, bools, statements, blocks, function calls, dot notation etc ... You can do all of that using this very same Recursive Descent technique. You'll first want to build a [tokenizer (aka: lexer)](src/compiler/token_stream.py) to feed proper tokens to the parser.
 
 
 The final output of a call to `parseExp()` will be some abstract representation of the parsed expression's hierarchy, typically an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST (Abstract Syntax Tree)</a>. For instance, the AST resulting from the assignment expression **`c = 1 + 1`** is:
@@ -58,7 +58,7 @@ The final output of a call to `parseExp()` will be some abstract representation 
 <img src="docs/res/ast-example.png" width="400" />
 
 
-When you're done with the parser, you may want to build an interpreter for your newly created language; but don't worry: if you don't care about performance, that's the easy part! 
+When you're done with the parser, you may want to build [an interpreter](src/runtime/runtime.py) for your newly created language; but don't worry: if you don't care about performance, that's the easy part! 
 
 
 
