@@ -16,7 +16,7 @@ You can find some examples of this language's usage here.
 
 ## Grammar
 
-You can get a [semi-formal EBNF specification of this language](docs/grammar.txt), which is a stripped-down and adapted form of the <a href="https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm">C programming language's grammar</a>, with only 17 production rules.
+You can get a [semi-formal EBNF specification of this language](docs/grammar.txt), which is a stripped-down and adapted form of the full<a href="https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm">C programming language's grammar</a>, with only 17 production rules.
 
 
 
