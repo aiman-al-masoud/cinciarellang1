@@ -6,6 +6,18 @@ A simple, dinamically typed, c-like, functional programming language.
 <img src="docs/res/cinciarella.jpg" width="500" />
 <a style="font-style : italic;" href="https://en.wikipedia.org/wiki/Eurasian_blue_tit">Eurasian blue tit (Cyanistes caeruleus)</a>
 
+## Running 
+
+## Examples
+
+You can find some code-snippets here.
+
+## Grammar
+
+You can get a semi-formal EBNF specification of this language, which is a stripped down and adapted form of the C's programming language grammar.
+
+https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm
+
 
 ## Parser
 
