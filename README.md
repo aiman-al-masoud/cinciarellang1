@@ -13,6 +13,9 @@ The final output of a call to function `A` will be some abstract representation 
 
 <img src="docs/res/ast-example.png" width="400" />
 
+
+<br/>
+
 Take mathematical expressions as a simple example:
 
 1. An **Expression** is the topmost structure in the hierarchy, and it is defined as the sum of one or more **Terms**.
