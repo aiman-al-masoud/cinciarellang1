@@ -23,10 +23,7 @@ You can get a [semi-formal EBNF specification of this language](docs/grammar.txt
 
 
 
-
-
-
-## About the Project
+## Discourse on Method
 
 This is the very first time I try implementing a parser for a "real McCoy" programming language, with a technique known as <a href="https://en.wikipedia.org/wiki/Recursive_descent_parser">Recursive Descent</a>; where the trick is to write a bunch of <a href="https://en.wikipedia.org/wiki/Mutual_recursion">mutually recursive</a> functions that repeatedly call each other in a loop (eg: `A` calls `B`, `B` calls `C`, and `C` calls back `A`, etc...). The loop eventually terminates, because function `C` eventually decides to return a base value instead of calling `A`. 
 
