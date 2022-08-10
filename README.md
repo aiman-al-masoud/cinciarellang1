@@ -15,7 +15,7 @@ You'll need a Python 3 interpreter to run this. No external dependencies are req
 
 ## Code Snippets
 
-You can find some examples of this language's usage here.
+You can find some examples of this language's usage at: [`src/samples/`](src/samples/README.md).
 
 ## Grammar
 
