@@ -39,7 +39,7 @@ parseExpression() -> parseTerm() -> parseFactor() ->
     <----------------------------------
 ```
 
-To implement a full programming language you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||`, `=` etc ... The weakest operator is typically the assignment operator `=`.
+To implement a parser for a full programming language you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||`, `=` etc ... The weakest operator is typically the assignment operator `=`.
 
 ### Sources:
 * https://www.youtube.com/watch?v=SToUyjAsaFk
