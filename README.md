@@ -33,11 +33,10 @@ F -> num | var | (E) | -F
 
 Notice how `+` and `-` are the weakest operators (think PEMDAS) so they're used to build up the topmost and most "fragile" structure: the **Expression**; while `*` and `/` are stronger, so they're used to build up the **Term** structure down in the hierarchy.
 
-In this simple language the mutually recursive trio of functions will behave like this (where arrows indicate function calls):
-```
-parseExpression() -> parseTerm() -> parseFactor() ->
-    <----------------------------------
-```
+In this simple language the mutually recursive trio of functions will behave like this:
+
+<img src="docs/res/calls-graph.png" width="400"/>
+
 
 To implement a parser for a full programming language, you basically need to build upon this simple hierarchy to include operators like: `==`, `!=`, `!`, `&&`, `||`, `=` etc ... The weakest operator is typically the assignment operator `=`, as you can also see from the figure above.
 
