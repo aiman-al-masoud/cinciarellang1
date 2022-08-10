@@ -6,11 +6,13 @@ A simple, dinamically typed, c-like, functional programming language.
 <img src="docs/res/cinciarella.jpg" width="500" />
 <a style="font-style : italic;" href="https://en.wikipedia.org/wiki/Eurasian_blue_tit">Eurasian blue tit (Cyanistes caeruleus)</a>
 
-## Running 
+## Running it
 
-## Examples
 
-You can find some code-snippets here.
+
+## Code Snippets
+
+You can find some examples of this language's usage here.
 
 ## Grammar
 
@@ -19,7 +21,7 @@ You can get a semi-formal EBNF specification of this language, which is a stripp
 https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm
 
 
-## Parser
+## About the Project
 
 This is the very first time I try implementing a parser for a "real McCoy" programming language, with a technique known as <a href="https://en.wikipedia.org/wiki/Recursive_descent_parser">Recursive Descent</a>; where the trick is to write a bunch of <a href="https://en.wikipedia.org/wiki/Mutual_recursion">mutually recursive</a> functions that repeatedly call each other in a loop (eg: `A` calls `B`, `B` calls `C`, and `C` calls back `A`, etc...). The loop eventually terminates, because function `C` eventually decides to return a base value instead of calling `A`. 
 
