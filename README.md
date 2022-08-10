@@ -42,7 +42,7 @@ The final output of a call to `parseExp()` will be some abstract representation 
 <img src="docs/res/ast-example.png" width="400" />
 
 
-When you're done with the parser, you may want to build an interpreter for your newly created language; but don't worry, if you don't care about performance, that's the easiest part! 
+When you're done with the parser, you may want to build an interpreter for your newly created language; but don't worry, if you don't care about performance, that's the easy part! 
 
 
 
