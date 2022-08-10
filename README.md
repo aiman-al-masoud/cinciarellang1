@@ -29,7 +29,7 @@ F -> num | var | (E) | -F
 
 Notice how `+` and `-` are the weakest operators (think PEMDAS) so they're used to build up the topmost and most "fragile" structure: the **Expression**; while `*` and `/` are stronger, so they're used to build up the **Term** structure down in the hierarchy.
 
-In this simple language, the mutually recursive trio of functions call each other in this fashion:
+You may thus implement a recursive trio of functions that behave in such a fashion:
 
 <img src="docs/res/calls-graph.png" width="400"/>
 
