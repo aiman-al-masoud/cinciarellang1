@@ -100,6 +100,10 @@ class Runtime:
         if op == '!=':
             return left != right
 
+        if op == ">":
+            print("here", left, right)
+            return left > right
+
         return eval(f"{left} {op} {right}") # TODO unsafe python eval (remove later)
         
         
