@@ -1,16 +1,20 @@
 import("./list.cl");
 
-map = fun(li, fx){
+map = fun(li, fx, n){
 
-    size = get(li, "size");
-    
-    if size -1 > -1 {
-        e = get(li, size-1);
-        set(li, "size", size-1);
-        chirp(fx(e));
-        map(li, fx);
+    if n == 0{
+        newLi = list();
     }
 
+    if n < get(li, "size") {
+        #chirp(fx(get(li, n)));
+        chirp(newLi, add);
+        
+        #add(newLi, fx(get(li, n)));
+        map(li, fx, n+1);
+    }
+
+    newLi;
 };
 
 
@@ -21,8 +25,8 @@ add(li, 3);
 chirp(li);
 
 
-map(li, fun(x){x+1;});
-
+s = map(li, fun(x){x+1;}, 0);
+chirp(s);
 
 
 

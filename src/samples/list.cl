@@ -7,9 +7,9 @@ add = fun(li, e){
 };
 
 
-li = list();
-add(li, 1);
-add(li, 2);
+#li = list();
+#add(li, 1);
+3add(li, 2);
 #chirp(get(li, 1));
 #chirp(li);
 
