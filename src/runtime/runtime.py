@@ -39,7 +39,7 @@ class Runtime:
             return self.env.get(ast['val'])
 
         if ast['type'] == '=': # assignment
-            # print("assignment!")
+            print("assignment!")
             rv = self.eval(ast['right'])
             self.env.set(ast['left']['val'], rv)
             return rv 
@@ -69,9 +69,16 @@ class Runtime:
             
             f:Fun = self.env.get(ast['name']['val'])
             e:Enviro = self.env.new_child()
-            self.enter_env(e)
-            r = f.run(ast['args'], e)
-            self.exit_env()
+
+            
+            if ast['name']['val'] == 'eval': # eval runs in the gloval env!
+                r = f.run(ast['args'], e)
+            else:
+                print("eval")
+                self.enter_env(e)
+                r = f.run(ast['args'], e)
+                self.exit_env()
+
             return r
 
 
