@@ -2,8 +2,9 @@ import("./list.cl");
 
 map = fun(li, fx, n){
 
-    if n == 0{
+    if !n {
         newLi = list();
+        n = 0;
     }
 
     if n < get(li, "size") {
@@ -26,7 +27,7 @@ add(li, 3);
 chirp(li);
 
 
-s = map(li, fun(x){x+1;}, 0);
+s = map(li, fun(x){x+1;});
 chirp(s);
 
 
