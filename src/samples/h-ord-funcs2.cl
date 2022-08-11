@@ -1,3 +1,5 @@
+import("./list.cl");
+
 map = fun(li, fx){
 
     size = get(li, "size");
