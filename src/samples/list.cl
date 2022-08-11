@@ -6,7 +6,7 @@ add = fun(li, e){
     set(li, "size", size+1);
 };
 
-getLi = fun(li, index){
+getFromList = fun(li, index){
     get(li, index);
 };
 
@@ -14,7 +14,7 @@ getLi = fun(li, index){
 li = list();
 add(li, 1);
 add(li, 2);
-chirp(getLi(li, 1));
+chirp(getFromList(li, 1));
 chirp(li);
 
 
