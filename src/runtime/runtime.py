@@ -79,6 +79,13 @@ class Runtime:
 
             return r
 
+        if ast['type'] == '-':
+            return -1*self.eval(ast['arg'])
+        
+        if ast['type'] == '!':
+            return not self.eval(ast['arg'])
+        
+
 
     def apply_op(self, op:str, left, right):
         
