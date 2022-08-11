@@ -1,7 +1,7 @@
 map = fun(li, fx){
 
     # newLi = list();
-    size = get()
-    if get
+    size = get(li, "size");
+    if 
 
 };
