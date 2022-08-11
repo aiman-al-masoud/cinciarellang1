@@ -9,7 +9,7 @@ class Interpreter:
     def __init__(self):
         self.rt = Runtime()
         self.rt.env.set("eval", Eval(self.rt.eval, self.eval))
-        self.rt.env.set("import", Eval(self.rt.eval, self.eval))
+        self.rt.env.set("import", Import(self.rt.eval, self.eval))
 
 
     def eval(self, string:str):
