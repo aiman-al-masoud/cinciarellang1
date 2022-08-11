@@ -10,8 +10,20 @@ class Fun:
         self.eval = _eval
 
     def bind_args(self, args, env:'Enviro'):
-        for i, arg in enumerate(args):
-            env.set(self.params[i]['val'], self.eval(arg))
+
+        # false as a default for non-provided args
+        bindings = [ (p['val'], False) for p in self.params]
+        
+        # for i, arg in enumerate(args):
+            # env.set(self.params[i]['val'], self.eval(arg))
+
+        for i, arg in enumerate(args): 
+            bindings[i] = (bindings[i][0], self.eval(arg))
+
+        for b in bindings:
+            env.set(b[0], b[1])
+
+        
     
     def run (self, args, env:Enviro):
         self.bind_args(args, env)
