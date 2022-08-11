@@ -7,10 +7,12 @@ map = fun(li, fx, n){
     }
 
     if n < get(li, "size") {
-        chirp(fx(get(li, n)));
+
+        e = get(li, n);
+        chirp(fx(e));
         chirp(newLi, add);
         
-        #add(newLi, fx(get(li, n)));
+        add(newLi, fx(e));
         map(li, fx, n+1);
     }
 
