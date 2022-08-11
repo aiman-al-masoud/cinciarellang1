@@ -40,8 +40,6 @@ class Import:
 
     def run(self, args, env:Enviro):
         path = self.eval_ast(args[0])
-        print("path", path)
-        exit()
         with open(path) as f:
             source = f.read()
         self.eval_source(source)
