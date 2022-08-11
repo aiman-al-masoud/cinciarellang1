@@ -14,6 +14,7 @@ class Runtime:
         self.env.set("obj", Object())
         self.env.set("get", Get(self.eval))
         self.env.set("set", Set(self.eval))
+        self.env.set("__file__", __file__)
 
 
     @property
