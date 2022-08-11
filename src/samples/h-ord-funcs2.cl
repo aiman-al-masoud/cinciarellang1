@@ -9,9 +9,8 @@ map = fun(li, fx, n){
     if n < get(li, "size") {
 
         e = get(li, n);
-        chirp(fx(e));
-        chirp(newLi, add);
-        
+        #chirp(fx(e));
+        #chirp(newLi, add);
         add(newLi, fx(e));
         map(li, fx, n+1);
     }
