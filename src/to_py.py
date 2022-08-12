@@ -51,9 +51,6 @@ class ToPy:
             return f"if {cond}:\n    {then}\nelse:\n    {_else}"
 
         if ast['type'] == 'fun':
-            # body = self.eval(ast['body'])
-            # params = ", ".join([p['val'] for p in ast['params']])
-            # return f"def ({params}):\n    {body}"
             return ""
 
 
