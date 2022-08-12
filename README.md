@@ -8,6 +8,14 @@ A simple, dinamically typed, c-like, functional programming language.
 
 <a style="font-style : italic;" href="https://en.wikipedia.org/wiki/Eurasian_blue_tit">Eurasian blue tit (Cyanistes caeruleus)</a>
 
+
+## Try it out
+
+Run the file [`./cincia.py`](src/cincia.py) with no arguments for a REPL (Read Print Eval Loop), or run it with a file path to execute the contents of the file, or run it like so: `./cincia.py --compile path/to/file.ci` to print the python equivalent on stdout (still work in progress).
+
+You'll need a Python 3 interpreter to run this. No external dependencies are required, except for the [`plot_ast.py`](src/plot_ast.py) utility.
+
+
 ## Code Snippets
 
 You can find some examples of this language's syntax at: [`src/samples/`](src/samples/README.md).
@@ -16,12 +24,6 @@ You can find some examples of this language's syntax at: [`src/samples/`](src/sa
 
 You can get a [semi-formal EBNF specification of this language](docs/grammar.txt), which is a stripped-down and adapted form of the full <a href="https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm">C programming language's grammar</a>, with only 17 production rules.
 
-
-## Try it out
-
-Run the file [`./cincia.py`](src/cincia.py) with no arguments for a REPL (Read Print Eval Loop), or run it with a file path to execute the contents of the file, or run it like so: `./cincia.py --compile path/to/file.ci` to print the python equivalent on stdout (still work in progress).
-
-You'll need a Python 3 interpreter to run this. No external dependencies are required, except for the [`plot_ast.py`](src/plot_ast.py) utility.
 
 
 
