@@ -20,9 +20,12 @@ class ToPy:
             return f"{lv} = {rv}"
 
         if ast['type'] in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
-            return self.apply_op(ast['type'], self.eval(ast['left']), self.eval(ast['right']))
+            return self.bin_op(ast['type'], self.eval(ast['left']), self.eval(ast['right']))
 
-    def apply_op(self, op:str, left, right):
+        if ast['type'] in ['-', '!']:
+            return self.un_op(ast['type'], self.eval(ast['arg']))
+
+    def bin_op(self, op:str, left, right):
         
         if op == 'add':
             return f"{left} + {right}"
@@ -49,10 +52,16 @@ class ToPy:
         if op == '<=':
             return f"{left} <= {right}"
 
+    def un_op(self, op:str, arg):
+
+        if op == '-':
+            return f"-{arg}"
+        if op == '!':
+            return f"not {arg}"
 
 
 def main():
-    s = "x = (1 > 1) || true;"
+    s = "x = (1 > 1) || !true;"
     ast = Parser(TokenStream(CharStream(s))).parse()[0]
     ps = ToPy().eval(ast)
     print(ps)
