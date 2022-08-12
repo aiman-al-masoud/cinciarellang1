@@ -11,7 +11,12 @@ inter = Interpreter()
 
 # transpile to python mode
 if len(sys.argv) == 3:
-    # opt = sys.argv[1] # -c --compile
+    opt = sys.argv[1] # -c --compile
+
+    if opt not in ["-c", "--compile"]:
+        print("Invalid option! Use -c or --compile")
+        exit(0)
+
     path = sys.argv[2]
 
     with open(path) as f:
@@ -19,7 +24,7 @@ if len(sys.argv) == 3:
 
     for ast in Parser(TokenStream(CharStream(s))).parse():
         print(ToPy().eval(ast))
-        
+
     exit(0)
 
 
