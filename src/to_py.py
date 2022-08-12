@@ -11,8 +11,12 @@ class ToPy:
         if ast is None:
             return 
     
-        if ast['type'] in ['num', 'str', 'id']:
+        if ast['type'] in ['num', 'id']:
             return str(ast['val'])
+
+        if ast['type'] == 'str':
+            return f"\"{ast['val']}\""
+
 
         if ast['type'] == 'bool':
             return str(ast['val']).capitalize()
