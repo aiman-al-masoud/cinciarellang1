@@ -2,9 +2,11 @@ from compiler.char_stream import CharStream
 from compiler.token_stream import TokenStream
 from compiler.parser import Parser
 
-# transpiler
-
 class ToPy:
+
+    """
+    Converts the AST into readable Python 3 code.
+    """
 
     def eval(self, ast):
 
@@ -23,24 +25,18 @@ class ToPy:
 
         if ast['type'] == '=':
             lv = self.eval(ast['left'])
-            # rv = self.eval(ast['right'])
             rv = ast['right']
-            # return f"{lv} = {rv}"
 
             if rv['type'] == 'fun':
                 return self.make_fun(lv, rv['params'], rv['body'])
             else:
                 return f"{lv} = {self.eval(rv)}"
 
-
-
-
         if ast['type'] in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
             return self.bin_op(ast['type'], self.eval(ast['left']), self.eval(ast['right']))
 
         if ast['type'] in ['-', '!']:
             return self.un_op(ast['type'], self.eval(ast['arg']))
-
 
         if ast['type'] == 'block':
             blk = ""
@@ -55,15 +51,13 @@ class ToPy:
             return f"if {cond}:\n    {then}\nelse:\n    {_else}"
 
         if ast['type'] == 'fun':
-            return ""
-
+            return "" # see assignment (above)
 
         if ast['type'] == 'call':
             name = ast['name']['val']
             args = ", ".join( str(self.eval(a)) for a in ast['args'])
             return f"{name}({args})"
-
-    
+            
 
     def bin_op(self, op:str, left, right):
         
