@@ -56,7 +56,7 @@ class ToPy:
 
         if ast['type'] == 'call':
             name = ast['name']['val']
-            args = ", ".join( str(a['val']) for a in ast['args'])
+            args = ", ".join( str(self.eval(a)) for a in ast['args'])
             return f"{name}({args})"
 
     
@@ -137,5 +137,19 @@ def main():
         print(ps)
 
 
+
+def main2():
+
+    import sys
+    with open(sys.argv[1]) as f:
+        s = f.read()
+
+    astls = Parser(TokenStream(CharStream(s))).parse()
+    for ast in astls:
+        print(ToPy().eval(ast))
+
+    
+
+    
 if __name__ == '__main__':
-    main()
+    main2()
