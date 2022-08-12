@@ -1,7 +1,3 @@
-from compiler.char_stream import CharStream
-from compiler.token_stream import TokenStream
-from compiler.parser import Parser
-
 class ToPy:
 
     """
@@ -105,50 +101,50 @@ class ToPy:
 
 
 
-def main():
+# def main():
 
-    s = """
-    x = (1 > 1) || !true;
-    y = 1+1;
-    if true{
-        x = 1;
-    };    
-    """
+#     s = """
+#     x = (1 > 1) || !true;
+#     y = 1+1;
+#     if true{
+#         x = 1;
+#     };    
+#     """
 
-    s = """
-    f = fun(x, y){
-        x + y;
-        x = 1;
-        x;
-    };
+#     s = """
+#     f = fun(x, y){
+#         x + y;
+#         x = 1;
+#         x;
+#     };
 
-    f(1, 2);
-    g = f;
-    """ 
+#     f(1, 2);
+#     g = f;
+#     """ 
 
-    # s = "f(1,2,a);"
+#     # s = "f(1,2,a);"
 
-    astls = Parser(TokenStream(CharStream(s))).parse()
+#     astls = Parser(TokenStream(CharStream(s))).parse()
 
-    for ast in astls:
+#     for ast in astls:
 
-        ps = ToPy().eval(ast)
-        print(ps)
+#         ps = ToPy().eval(ast)
+#         print(ps)
 
 
 
-def main2():
+# def main2():
 
-    import sys
-    with open(sys.argv[1]) as f:
-        s = f.read()
+#     import sys
+#     with open(sys.argv[1]) as f:
+#         s = f.read()
 
-    astls = Parser(TokenStream(CharStream(s))).parse()
-    for ast in astls:
-        print(ToPy().eval(ast))
-
-    
+#     astls = Parser(TokenStream(CharStream(s))).parse()
+#     for ast in astls:
+#         print(ToPy().eval(ast))
 
     
-if __name__ == '__main__':
-    main2()
+
+    
+# if __name__ == '__main__':
+#     main2()

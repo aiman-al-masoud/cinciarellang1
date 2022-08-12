@@ -1,11 +1,30 @@
 #!/bin/python3
 import sys, readline # shell history
 from interpreter import Interpreter
+from transpiler.to_py import ToPy
+from compiler.char_stream import CharStream
+from compiler.token_stream import TokenStream
+from compiler.parser import Parser
 
 inter = Interpreter()
 
+
+# transpile to python mode
+if len(sys.argv) == 3:
+    # opt = sys.argv[1] # -c --compile
+    path = sys.argv[2]
+
+    with open(path) as f:
+       s = f.read()
+
+    for ast in Parser(TokenStream(CharStream(s))).parse():
+        print(ToPy().eval(ast))
+        
+    exit(0)
+
+
 # batch mode
-if len(sys.argv) > 1:
+if len(sys.argv) == 2:
     path = sys.argv[1]
     with open(path) as f:
         inter.eval(f.read())
