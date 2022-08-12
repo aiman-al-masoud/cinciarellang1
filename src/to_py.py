@@ -7,6 +7,9 @@ from compiler.parser import Parser
 class ToPy:
 
     def eval(self, ast):
+
+        if ast is None:
+            return 
     
         if ast['type'] in ['num', 'str', 'id']:
             return str(ast['val'])
@@ -29,11 +32,16 @@ class ToPy:
         if ast['type'] == 'block':
             blk = ""
             for stm in ast['val']:
-                s+=self.eval(stm)+"\n"
+                blk+=self.eval(stm)+"\n"
             return blk
 
         if ast['type'] == 'if':
-            pass
+            cond = self.eval(ast['cond'])
+            then =  self.eval(ast['then']) 
+            _else =  self.eval(ast['else'])
+            return f"if {cond}:\n    {then}\nelse:\n    {_else}"
+
+
 
         if ast['type'] == 'fun':
             pass
@@ -83,6 +91,9 @@ def main():
     s = """
     x = (1 > 1) || !true;
     y = 1+1;
+    if true{
+        x = 1;
+    };
     """
     astls = Parser(TokenStream(CharStream(s))).parse()
 
