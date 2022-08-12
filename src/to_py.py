@@ -41,8 +41,6 @@ class ToPy:
             _else =  self.eval(ast['else'])
             return f"if {cond}:\n    {then}\nelse:\n    {_else}"
 
-
-
         if ast['type'] == 'fun':
             pass
 
