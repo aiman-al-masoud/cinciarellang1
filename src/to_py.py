@@ -19,8 +19,14 @@ class ToPy:
 
         if ast['type'] == '=':
             lv = self.eval(ast['left'])
-            rv = self.eval(ast['right'])
-            return f"{lv} = {rv}"
+            # rv = self.eval(ast['right'])
+            rv = ast['right']
+            # return f"{lv} = {rv}"
+
+            if rv['type'] == 'fun':
+                return self.make_fun(lv, rv['params'], rv['body'])
+            else:
+                return f"{lv} = {self.eval(rv)}"
 
 
 
@@ -92,8 +98,10 @@ class ToPy:
         if op == '!':
             return f"not {arg}"
 
-    def make_fun(self, name, args, body):
-        pass
+    def make_fun(self, name, params, body):
+        body = self.eval(body)
+        params = ", ".join([p['val'] for p in params])
+        return f"def {name}({params}):\n    {body}"
 
 
 
@@ -108,14 +116,13 @@ def main():
     """
 
     s = """
-    fun(x, y){
-        1;
+    x = fun(x, y){
+        x + y;
     };
     """ 
 
-    s = """
-    f(1,2,a);
-    """
+    # s = "f(1,2,a);"
+
     astls = Parser(TokenStream(CharStream(s))).parse()
 
     for ast in astls:
