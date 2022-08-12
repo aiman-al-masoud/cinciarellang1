@@ -22,6 +22,9 @@ class ToPy:
             rv = self.eval(ast['right'])
             return f"{lv} = {rv}"
 
+
+            
+
         if ast['type'] in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
             return self.bin_op(ast['type'], self.eval(ast['left']), self.eval(ast['right']))
 
@@ -42,13 +45,16 @@ class ToPy:
             return f"if {cond}:\n    {then}\nelse:\n    {_else}"
 
         if ast['type'] == 'fun':
-            pass
+            # body = self.eval(ast['body'])
+            # params = ", ".join([p['val'] for p in ast['params']])
+            # return f"def ({params}):\n    {body}"
+            return ""
+
 
         if ast['type'] == 'call':
             pass
 
-
-
+    
 
     def bin_op(self, op:str, left, right):
         
@@ -84,15 +90,26 @@ class ToPy:
         if op == '!':
             return f"not {arg}"
 
+    def make_fun(self, name, args, body):
+        pass
+
+
 
 def main():
+
     s = """
     x = (1 > 1) || !true;
     y = 1+1;
     if true{
         x = 1;
-    };
+    };    
     """
+
+    s = """
+    fun(x, y){
+        1;
+    };
+    """ 
     astls = Parser(TokenStream(CharStream(s))).parse()
 
     for ast in astls:
