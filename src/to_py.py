@@ -23,7 +23,7 @@ class ToPy:
             return f"{lv} = {rv}"
 
 
-            
+
 
         if ast['type'] in ['add', 'sub', 'mul', 'div', 'or', 'and', '==', '!=', '>', '<', '>=', '<=']:
             return self.bin_op(ast['type'], self.eval(ast['left']), self.eval(ast['right']))
@@ -52,7 +52,9 @@ class ToPy:
 
 
         if ast['type'] == 'call':
-            pass
+            name = ast['name']['val']
+            args = ", ".join( str(a['val']) for a in ast['args'])
+            return f"{name}({args})"
 
     
 
@@ -110,6 +112,10 @@ def main():
         1;
     };
     """ 
+
+    s = """
+    f(1,2,a);
+    """
     astls = Parser(TokenStream(CharStream(s))).parse()
 
     for ast in astls:
