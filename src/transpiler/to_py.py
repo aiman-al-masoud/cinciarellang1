@@ -6,6 +6,7 @@ class ToPy:
 
     """
     Converts the AST into readable Python 3 code.
+    TODO: deal with get, set, obj, eval, chirp and import Cinciarellang funcs.
     """
 
     def eval(self, ast):
