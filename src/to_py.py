@@ -99,7 +99,11 @@ class ToPy:
             return f"not {arg}"
 
     def make_fun(self, name, params, body):
-        body = "\n    "+str(self.eval(body)).replace("\n", "\n    ")
+
+        body = [l for l in self.eval(body).split("\n") if l.strip() != ""]
+        ret = "return "+body.pop()
+        body.append(ret)
+        body = "\n    " + "\n    ".join(body)
         params = ", ".join([p['val'] for p in params])
         return f"def {name}({params}):{body}"
 
@@ -119,7 +123,7 @@ def main():
     f = fun(x, y){
         x + y;
         x = 1;
-        y = 1;
+        x;
     };
 
     f(1, 2);
