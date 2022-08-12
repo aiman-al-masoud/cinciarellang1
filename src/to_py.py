@@ -25,6 +25,22 @@ class ToPy:
         if ast['type'] in ['-', '!']:
             return self.un_op(ast['type'], self.eval(ast['arg']))
 
+
+        if ast['type'] == 'block':
+            pass
+
+        if ast['type'] == 'if':
+            pass
+
+        if ast['type'] == 'fun':
+            pass
+
+        if ast['type'] == 'call':
+            pass
+
+        
+
+
     def bin_op(self, op:str, left, right):
         
         if op == 'add':
