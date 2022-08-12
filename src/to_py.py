@@ -27,7 +27,10 @@ class ToPy:
 
 
         if ast['type'] == 'block':
-            pass
+            blk = ""
+            for stm in ast['val']:
+                s+=self.eval(stm)+"\n"
+            return blk
 
         if ast['type'] == 'if':
             pass
@@ -38,7 +41,7 @@ class ToPy:
         if ast['type'] == 'call':
             pass
 
-        
+
 
 
     def bin_op(self, op:str, left, right):
@@ -77,10 +80,16 @@ class ToPy:
 
 
 def main():
-    s = "x = (1 > 1) || !true;"
-    ast = Parser(TokenStream(CharStream(s))).parse()[0]
-    ps = ToPy().eval(ast)
-    print(ps)
+    s = """
+    x = (1 > 1) || !true;
+    y = 1+1;
+    """
+    astls = Parser(TokenStream(CharStream(s))).parse()
+
+    for ast in astls:
+
+        ps = ToPy().eval(ast)
+        print(ps)
 
 
 if __name__ == '__main__':
