@@ -1,5 +1,5 @@
 # La serie di Fibonacci implementata ricorsivamente in 'Cinciarellang'
-# Viva la ricorsività! Viva i linguaggi formali!
+# Viva la ricorsività!
 
 fib = fun(n){
 
