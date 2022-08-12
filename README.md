@@ -10,7 +10,7 @@ A simple, dinamically typed, c-like, functional programming language.
 
 ## Running it
 
-Run the file [`./cincia.py`](src/cincia.py) with no arguments for a REPL (Read Print Eval Loop), or run it with a file path to execute the contents of the file.
+Run the file [`./cincia.py`](src/cincia.py) with no arguments for a REPL (Read Print Eval Loop), or run it with a file path to execute the contents of the file, or run it like so: `./cincia.py --compile path/to/file.ci` to print the python equivalent on stdout.
 
 You'll need a Python 3 interpreter to run this. No external dependencies are required, except for the [`plot_ast.py`](src/plot_ast.py) utility.
 
