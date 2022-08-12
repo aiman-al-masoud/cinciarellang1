@@ -62,7 +62,7 @@ The final output of a call to `parseExp()` will be some abstract representation 
 
 When you're done with the parser, you may want to build [an interpreter](src/runtime/runtime.py) for your newly created language; but don't worry: if you don't care about performance, that's the easy part! 
 
-Alternatively, you may also want to compile your ast into source code of some other language; building a [transpiler](src/) can be done with very much the same technique as the interpreter.
+Alternatively, you may also want to compile your ast into source code of some other language; building a [transpiler](src/transpiler/to_py.py) can be done with very much the same technique as the interpreter.
 
 
 
